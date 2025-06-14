@@ -36,6 +36,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="product-list.php" class="collapsed">
+                        <i class="fas fa-chevron-circle-right"></i>
+                        <p>Product</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="Blogs-list.php" class="collapsed">
                         <i class="fas fa-layer-group"></i>
                         <p>Blogs</p>
