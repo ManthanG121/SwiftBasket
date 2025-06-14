@@ -10,14 +10,13 @@ include "sidebar.php";
                 <h3 class="fw-bold mb-3">Add Category</h3>
             </div>
             <div class="ms-md-auto py-2 py-md-0">
-                <a href="category-list.php" class="btn btn-primary btn-round">Category List</a>
+                <a href="category-list.php" class="btn btn btn-outline-primary btn-round">Category List</a>
             </div>
         </div>
-        
         <hr>
         <div class="container">
             <div class="card shadow-lg border-0 rounded-4">
-                <div class="card-header bg-success text-white rounded-top-4">
+                <div class="card-header bg-info text-white rounded-top-4">
                     <h4 class="mb-0"><i class="fas fa-tags me-2"></i>Add New Category</h4>
                 </div>
                 <div class="card-body p-4">
@@ -44,7 +43,7 @@ include "sidebar.php";
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success px-4 py-2">
+                            <button type="submit" class="btn btn-info px-4 py-2">
                                 <i class="fas fa-paper-plane me-1"></i>Submit
                             </button>
                         </div>
