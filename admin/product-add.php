@@ -14,7 +14,7 @@ include "sidebar.php";
             </div>
         </div>
         <hr>
-        <div class="container mt-4 mb-4">
+        <div class="container mb-4">
             <div class="card border-0 shadow-sm rounded-4 bg-light">
                 <div class="card-header bg-info text-white rounded-top-4">
                     <h5 class="mb-0">Add New Product</h5>

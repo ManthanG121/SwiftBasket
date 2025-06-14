@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="product-list.php" class="collapsed">
-                        <i class="fas fa-chevron-circle-right"></i>
+                        <i class="far fa-arrow-alt-circle-right"></i>
                         <p>Product</p>
                     </a>
                 </li>
