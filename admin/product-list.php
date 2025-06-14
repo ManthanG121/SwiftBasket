@@ -26,7 +26,7 @@ include "sidebar.php";
                         <thead class="table-dark">
                             <tr>
                                 <th>#</th>
-                                <th>Product Name</th>
+                                <th>Product Name</th>   
                                 <th>Image</th>
                                 <th>MRP</th>
                                 <th>Discount %</th>
@@ -96,8 +96,8 @@ include "sidebar.php";
                     </table>
                 </div>
             </div>
+            
         </div>
-
     </div>
 </div>
 
