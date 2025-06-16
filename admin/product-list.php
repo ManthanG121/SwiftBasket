@@ -59,7 +59,7 @@ include "sidebar.php";
                                     <td><span class="badge bg-success">₹<?= $row["product_sell_price"] ?></span></td>
                                     <td><span class="badge bg-info text-dark"><?= $row["category"] ?></span></td>
                                     <td>
-                                        <a href="#" class="text-warning fs-5">
+                                        <a href="Featured-insert.php?product_id=<?= $row["product_id"] ?>" class="text-warning fs-5">
                                             <i class="fa fa-star"></i>
                                         </a>
                                     </td>
@@ -70,7 +70,7 @@ include "sidebar.php";
                                         <a href="product-edit.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-success mb-1" title="Edit">
                                             <i class="fa fa-pen"></i>
                                         </a>
-                                        <a href="product-delete.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-danger mb-2" title="Delete"
+                                        <a href="product-delete.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-danger mb-1" title="Delete"
                                             onclick="return confirm('Are you sure you want to delete this product?');">
                                             <i class="fa fa-trash"></i>
                                         </a>
