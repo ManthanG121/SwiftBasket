@@ -42,6 +42,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="Featured-list.php" class="collapsed">
+                        <i class="far fa-star"></i>
+                        <p>Featured Product</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="Blogs-list.php" class="collapsed">
                         <i class="fas fa-layer-group"></i>
                         <p>Blogs</p>
