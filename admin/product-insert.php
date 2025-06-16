@@ -17,7 +17,7 @@ move_uploaded_file($tmp_name, "uplodes/image/$img");
 $query = "INSERT INTO tbl_product(`product_name`,`product_img`,`product_mrp`,`product_discount_percentage`,`product_discount_value`,`product_sell_price`,`product_discription`,`category`) VALUES('$name','$img','$mrp','$discount_percentage','$discount_value','$sell_price','$description','$categori')";
 $result = mysqli_query($conn, $query);
 if ($result) {
-    $_SESSION["success"] = "Add Successfully..!";
+    $_SESSION["success"] = "Product Add Successfully..!";
     echo "<script>window.location.href='product-list.php'</script>";
 } else {
     echo "Registration Failed..!";

@@ -3,6 +3,49 @@ include("../db-connection/db connection.php");
 include "header.php";
 include "sidebar.php";
 ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toastEl = document.querySelector('.toast');
+        if (toastEl) {
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+        }
+    });
+</script>
+<?php if (isset($_SESSION['delete'])): ?>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;text-align: center; margin-top: 100px;">
+        <div class="toast text-center align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <?= htmlspecialchars($_SESSION['delete']) ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <?php unset($_SESSION['delete']); ?>
+<?php endif; ?>
+<!-- delete -->
+<?php if (isset($_SESSION['success'])): ?>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;text-align: center; margin-top: 100px;">
+        <div class="toast text-center align-items-center text-white bg-success border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <?= htmlspecialchars($_SESSION['success']) ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <?php unset($_SESSION['success']); ?>
+<?php endif; ?>
 <div class="container">
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
@@ -26,7 +69,7 @@ include "sidebar.php";
                         <thead class="table-dark">
                             <tr>
                                 <th>#</th>
-                                <th>Product Name</th>   
+                                <th>Product Name</th>
                                 <th>Image</th>
                                 <th>MRP</th>
                                 <th>Discount %</th>
@@ -59,18 +102,22 @@ include "sidebar.php";
                                     <td><span class="badge bg-success">₹<?= $row["product_sell_price"] ?></span></td>
                                     <td><span class="badge bg-info text-dark"><?= $row["category"] ?></span></td>
                                     <td>
-                                        <a href="Featured-insert.php?product_id=<?= $row["product_id"] ?>" class="text-warning fs-5">
+                                        <a href="Featured-insert.php?product_id=<?= $row["product_id"] ?>"
+                                            class="text-warning fs-5">
                                             <i class="fa fa-star"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="product-view.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-info mb-1" title="View">
+                                        <a href="product-view.php?product_id=<?= $row["product_id"] ?>"
+                                            class="btn btn-sm btn-outline-info mb-1" title="View">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="product-edit.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-success mb-1" title="Edit">
+                                        <a href="product-edit.php?product_id=<?= $row["product_id"] ?>"
+                                            class="btn btn-sm btn-outline-success mb-1" title="Edit">
                                             <i class="fa fa-pen"></i>
                                         </a>
-                                        <a href="product-delete.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-danger mb-1" title="Delete"
+                                        <a href="product-delete.php?product_id=<?= $row["product_id"] ?>"
+                                            class="btn btn-sm btn-outline-danger mb-1" title="Delete"
                                             onclick="return confirm('Are you sure you want to delete this product?');">
                                             <i class="fa fa-trash"></i>
                                         </a>
