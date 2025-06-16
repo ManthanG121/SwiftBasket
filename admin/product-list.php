@@ -34,7 +34,6 @@ include "sidebar.php";
                                 <th>Sell Price</th>
                                 <th>Category</th>
                                 <th>Featured</th>
-                                <th>Description</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -64,11 +63,8 @@ include "sidebar.php";
                                             <i class="fa fa-star"></i>
                                         </a>
                                     </td>
-                                    <td class="text-wrap" style="max-width: 150px;">
-                                        <?= $row["product_discription"] ?>
-                                    </td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-outline-info mb-1" title="View">
+                                        <a href="product-view.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-info mb-1" title="View">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <a href="product-edit.php?product_id=<?= $row["product_id"] ?>" class="btn btn-sm btn-outline-success mb-1" title="Edit">
