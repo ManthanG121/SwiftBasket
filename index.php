@@ -2,6 +2,10 @@
 include "header.php";
 include("./db-connection/db connection.php");
 ?>
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <!-- Hero Section -->
 <section class="hero-section"
@@ -120,7 +124,8 @@ include("./db-connection/db connection.php");
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                             ?>
-                            <a href="product.php?category_id=<?= $row['category_id'] ?>" class="nav-link swiper-slide text-center">
+                            <a href="product.php?category_id=<?= $row['category_id'] ?>"
+                                class="nav-link swiper-slide text-center">
                                 <img src="admin/uplodes/image/<?= $row["category_img"] ?>" alt="Category Thumbnail"
                                     class="rounded-circle" style="width: 100px; height: 100px;">
 
@@ -225,74 +230,90 @@ include("./db-connection/db connection.php");
     </div>
 </section>
 
-<!-- Featured Products -->
-<section class="py-5">
+
+<!-- Featured Products Section -->
+<section class="py-5 bg-light">
     <div class="container">
         <div class="row mb-4">
-            <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2 class="section-title mb-0">Featured Products</h2>
-                    <div>
-                        <button class="btn btn-outline-secondary me-2 featured-prev rounded-circle">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="btn btn-outline-secondary featured-next rounded-circle">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <h2 class="section-title">Featured Products</h2>
+                <div>
+                    <button class="btn btn-outline-secondary me-2 featured-prev rounded-circle">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary featured-next rounded-circle">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <div class="position-relative">
-            <div class="featured-slider swiper-container overflow-hidden">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="card product-card h-100 border-0 shadow-sm hover-top">
-                            <div class="badge bg-danger position-absolute mt-2 ms-2">Sale</div>
-                            <div class="product-thumb p-4 text-center">
-                                <a href="product-detail.php">
-                                    <img src="images/product-thumb-2.png" class="img-fluid" alt="Product">
-                                </a>
-                            </div>
-                            <div class="card-body pt-0">
-                                <div class="product-info">
-                                    <h5 class="product-title mb-1">
-                                        <a href="product-detail.php" class="text-dark text-decoration-none">Featured
-                                            Product</a>
-                                    </h5>
-                                    <div class="product-rating mb-2">
-                                        <div class="star-rating">
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star-half-alt text-warning"></i>
-                                        </div>
-                                        <span class="text-muted small">(18 reviews)</span>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="text-muted text-decoration-line-through me-2">$24.00</span>
-                                        <span class="h5 mb-0 text-primary">$18.00</span>
-                                    </div>
+        <div class="swiper featured-slider overflow-hidden">
+            <div class="swiper-wrapper">
+                <?php
+                
+                $query = "SELECT * FROM tbl_product INNER JOIN tbl_feature ON tbl_product.product_id = tbl_feature.product_id"; 
+                $result = mysqli_query($conn, $query);
+
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                        <div class="swiper-slide">
+                            <div class="card product-card h-100 border-0 shadow hover-top mb-4 mt-4">
+                                <div class="badge bg-success position-absolute top-0 end-0 m-2">
+                                    <?= $row['product_discount_percentage'] ?>% OFF
                                 </div>
-                                <div class="product-actions d-flex mt-3">
-                                    <button class="btn btn-sm btn-outline-secondary me-2 rounded-circle">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-                                    <button class="btn btn-sm btn-primary flex-grow-1 rounded-pill">
-                                        <i class="fas fa-shopping-cart me-1"></i> Add to Cart
-                                    </button>
+                                <div class="product-image">
+                                    <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
+                                        <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top" alt="Product">
+                                    </a>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
+                                        <h5 class="card-title mb-1 text-center"><?= $row['product_name'] ?></h5>
+                                    </a>
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <div class="text-warning small me-2">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="text-muted small">(400 reviews)</span>
+                                    </div>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-center align-items-center mb-3">
+                                            <span class="text-dark fw-bold fs-5 me-2"><?= $row['product_sell_price'] ?> Rs</span>
+                                            <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?> Rs</span>
+                                        </div>
+                                        <div class="d-flex gap-2">
+                                            <form action="add_to_cart.php" method="post" class="flex-grow-1">
+                                                <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                                <button type="submit" class="btn btn-success w-100">
+                                                    <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                                </button>
+                                            </form>
+                                            <form action="addtowishlist.php" method="post">
+                                                <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                                <button type="submit" class="btn btn-outline-secondary">
+                                                    <i class="far fa-heart"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Add more featured products here -->
-                </div>
+                        <?php
+                    }
+                } else {
+                    echo '<div class="col-12 text-center py-5"><div class="alert alert-info">No featured products found.</div></div>';
+                }
+                ?>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- Features Section -->
 <section class="py-5 bg-light">
@@ -430,6 +451,26 @@ include("./db-connection/db connection.php");
     .category-card:hover {
         background-color: #f8f9fa;
     }
+    .product-image {
+    height: 250px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.product-image img {
+    max-height: 100%;
+    object-fit: cover;
+}
+.hover-top {
+    transition: all 0.3s ease-in-out;
+}
+.hover-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
 </style>
 
 <!-- Initialize Swiper -->
@@ -457,6 +498,30 @@ include("./db-connection/db connection.php");
         });
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.featured-slider', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.featured-next',
+                prevEl: '.featured-prev',
+            },
+            breakpoints: {
+                576: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                992: {
+                    slidesPerView: 4,
+                }
+            }
+        });
+    });
+</script>
+
 
 <?php
 include "footer.php";
