@@ -265,7 +265,7 @@ include("./db-connection/db connection.php");
                                 </div>
                                 <div class="product-image">
                                     <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
-                                        <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top ms-5" alt="Product">
+                                        <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top" alt="Product">
                                     </a>
                                 </div>
                                 <div class="card-body d-flex flex-column">
