@@ -10,7 +10,7 @@ $query = "INSERT INTO tbl_contact(`contact_name`,`contact_email`,`contact_subjec
 $result = mysqli_query($conn,$query);
 if($result)
 {
-     $_SESSION["contact_us"] = "Your Message Is Send Please Wait For Responce...";
+    $_SESSION["contact_us"] = "Your Message Is Send Please Wait For Responce...";
     echo "<script>window.location.href='contact.php'</script>";
 }
 else{

@@ -1,5 +1,5 @@
 <?php include "header.php";
- ?>
+?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -10,6 +10,22 @@
         }
     });
 </script>
+<?php if (isset($_SESSION['contact_us'])): ?>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;text-align: center; margin-top: 105px;">
+        <div class="toast text-center align-items-center text-white bg-success border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <?= htmlspecialchars($_SESSION['contact_us']) ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <?php unset($_SESSION['contact_us']); ?>
+<?php endif; ?>
 
 <section class="contact-section py-5">
     <div class="container">
@@ -17,23 +33,7 @@
             <div class="col-lg-12">
                 <div class="card shadow border-0">
                     <div class="row g-0">
-                        <?php if (isset($_SESSION['contact_us'])): ?>
-                            <div class="position-fixed top-0 end-0 p-3"
-                                style="z-index: 1055;text-align: center; margin-top: 100px;">
-                                <div class="toast text-center align-items-center text-white bg-danger border-0" role="alert"
-                                    aria-live="assertive" aria-atomic="true">
-                                    <div class="d-flex">
-                                        <div class="toast-body">
-                                            <i class="fas fa-check-circle me-2"></i>
-                                            <?= htmlspecialchars($_SESSION['contact_us']) ?>
-                                        </div>
-                                        <button type="button" class="btn-close btn-close-white me-2 m-auto"
-                                            data-bs-dismiss="toast" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php unset($_SESSION['contact_us']); ?>
-                        <?php endif; ?>
+
                         <!-- Contact Form Column -->
                         <div class="col-lg-7 p-4 p-lg-5">
                             <div class="card-body">
