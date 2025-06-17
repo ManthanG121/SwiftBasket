@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+include("./db-connection/db connection.php");
 ?>
 
 <!-- Hero Section -->
@@ -114,55 +115,20 @@ include "header.php";
 
                 <div class="category-carousel swiper">
                     <div class="swiper-wrapper">
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-2.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-3.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-4.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-5.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-6.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-7.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-8.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
-                        </a>
+                        <?php
+                        $query = "SELECT * FROM `tbl_category`";
+                        $result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <a href="product.php?category_id=<?= $row['category_id'] ?>" class="nav-link swiper-slide text-center">
+                                <img src="admin/uplodes/image/<?= $row["category_img"] ?>" alt="Category Thumbnail"
+                                    class="rounded-circle" style="width: 100px; height: 100px;">
 
+                                <h4 class="fs-6 mt-3 fw-normal category-title"><?= $row["category_name"] ?></h4>
+                            </a>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
 
