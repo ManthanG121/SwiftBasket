@@ -22,37 +22,56 @@ include("./db-connection/db connection.php");
 
             while ($row = mysqli_fetch_array($result)) {
             ?>
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 hover-shadow">
-                        <div class="position-relative">
-                            <span class="badge bg-danger position-absolute top-0 start-0 m-2"><?= $row['product_discount_percentage'] ?> % </span>
-                            <a href="product-detail.php?product_id=<?= $row['product_id'] ?>">
-                                <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top p-3" style="height: 200px; object-fit: contain;" alt="<?= $row['product_name'] ?>">
-                            </a>
-                        </div>
-                        <div class="card-body text-center">
-                            <h6 class="card-title mb-2">
-                                <a href="product-detail.php?product_id=<?= $row['product_id'] ?>" class="text-dark text-decoration-none fw-semibold">
-                                    <?= $row['product_name'] ?>
-                                </a>
-                            </h6>
-
-                            <div class="mb-2">
-                                <span class="text-muted text-decoration-line-through">₹<?= $row['product_mrp'] ?></span>
-                                <span class="fw-bold text-primary ms-1">₹<?= $row['product_sell_price'] ?></span>
+                <div class="col-md-6 col-lg-3">
+                                <div class="card product-card h-100 border-0 shadow-sm hover-top">
+                                    <div class="badge bg-success position-absolute top-0 end-0 m-2"><?= $row['product_discount_percentage'] ?>% OFF</div>
+                                    <div class="product-image">
+                                        <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
+                                            <img src="admin/uplodes/image/<?= ($row['product_img']) ?>"
+                                                class="card-img-top">
+                                        </a>
+                                    </div>
+                                    <div class="card-body d-flex flex-column shadow-sm">
+                                        <div class="mb-2">
+                                            <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
+                                                <h5 class="card-title mb-1 text-center"><?= ($row['product_name']) ?></h5>
+                                            </a>
+                                            <div class="d-flex text-center mb-2 ms-3">
+                                                <div class="text-warning small me-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                                <span class="text-muted small">(400 reviews)</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <span class="text-dark fw-bold fs-5 me-2 ms-5"><?= $row['product_sell_price'] ?> Rs</span>
+                                                <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?>
+                                                    Rs</span>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <form action="add_to_cart.php" method="post" class="flex-grow-1">
+                                                    <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                                    <button type="submit" class="btn btn-success w-100">
+                                                        <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                                    </button>
+                                                </form>
+                                                <form action="addtowishlist.php" method="post">
+                                                    <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                                    <button type="submit" class="btn btn-outline-secondary">
+                                                        <i class="far fa-heart"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="d-flex justify-content-center gap-2 mt-3">
-                                <button class="btn btn-outline-danger btn-sm rounded-circle" title="Add to Wishlist">
-                                    <i class="bi bi-heart"></i>
-                                </button>
-                                <button class="btn btn-primary btn-sm px-3 rounded-pill" title="Add to Cart">
-                                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             <?php
             }
             ?>
@@ -63,3 +82,32 @@ include("./db-connection/db connection.php");
 <?php
 include "footer.php";
 ?>
+
+<style>
+    .hover-top {
+        transition: all 0.3s ease;
+    }
+
+    .hover-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+        height: 250px;
+        width: 250px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .product-image img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .shop-section {
+        background-color: rgba(248, 249, 250, 0.8);
+    }
+</style>
