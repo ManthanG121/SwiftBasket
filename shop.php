@@ -152,11 +152,11 @@ include("./db-connection/db connection.php");
                                     <div class="badge bg-success position-absolute top-0 end-0 m-2"><?= $row['product_discount_percentage'] ?>% OFF</div>
                                     <div class="product-image">
                                         <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
-                                            <img src="uplodes/image/<?= ($row['product_img']) ?>" style="width: 300px;"
+                                            <img src="admin/uplodes/image/<?= ($row['product_img']) ?>" style="width: 300px;"
                                                 class="card-img-top">
                                         </a>
                                     </div>
-                                    <div class="card-body d-flex flex-column">
+                                    <div class="card-body d-flex flex-column shadow-sm">
                                         <div class="mb-2">
                                             <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
                                                 <h5 class="card-title mb-1"><?= htmlspecialchars($row['product_name']) ?></h5>
