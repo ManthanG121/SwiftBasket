@@ -48,6 +48,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="contact-list.php" class="collapsed">
+                        <i class="fas fa-phone"></i>
+                        <p>Contact Us</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="Blogs-list.php" class="collapsed">
                         <i class="fas fa-layer-group"></i>
                         <p>Blogs</p>
