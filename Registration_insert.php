@@ -7,6 +7,7 @@ $confirmpassword = $_POST["confirmpassword"];
 $query = "INSERT INTO tbl_customer(`customer_name`,`customer_email`,`customer_password`,`customer_confirm_password`) VALUES('$name','$email','$pass','$confirmpassword')";
 $result = mysqli_query($conn, $query);
 if ($result) {
+    echo "<script>window.location.href='Signup_LogIn_Form.php'</script>";
     echo "Registration Successfully..!";
 } else {
     echo "Registration Failed..!";
