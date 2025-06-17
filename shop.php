@@ -159,9 +159,9 @@ include("./db-connection/db connection.php");
                                     <div class="card-body d-flex flex-column shadow-sm">
                                         <div class="mb-2">
                                             <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
-                                                <h5 class="card-title mb-1"><?= htmlspecialchars($row['product_name']) ?></h5>
+                                                <h5 class="card-title mb-1 text-center"><?= ($row['product_name']) ?></h5>
                                             </a>
-                                            <div class="d-flex align-items-center mb-2">
+                                            <div class="d-flex text-center mb-2 ms-3">
                                                 <div class="text-warning small me-2">
                                                     <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
@@ -174,7 +174,7 @@ include("./db-connection/db connection.php");
                                         </div>
                                         <div class="mt-auto">
                                             <div class="d-flex align-items-center mb-3">
-                                                <span class="text-dark fw-bold fs-5 me-2"><?= $row['product_sell_price'] ?> Rs</span>
+                                                <span class="text-dark fw-bold fs-5 me-2 ms-5"><?= $row['product_sell_price'] ?> Rs</span>
                                                 <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?>
                                                     Rs</span>
                                             </div>
