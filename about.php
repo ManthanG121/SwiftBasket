@@ -2,9 +2,9 @@
 include "header.php";
 ?>
 
-<div class="bg-primary text-white py-5">
+<div class="bg-warning text-white py-5">
   <div class="container text-center">
-    <h1 class="display-4">About YourStore</h1>
+    <h1 class="display-4">About Our Store</h1>
     <p class="lead">Your one-stop shop for everything you need, anytime, anywhere.</p>
   </div>
 </div>
@@ -15,7 +15,7 @@ include "header.php";
       
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title text-primary">Who We Are</h2>
+          <h2 class="card-title text-warning">Who We Are</h2>
           <p class="card-text">
             At YourStore, we're passionate about making shopping easy, enjoyable, and accessible for everyone. Since our launch, we've committed to offering a massive range of quality products - from fashion and electronics to home goods, groceries, and beyond - all in one seamless online experience.
           </p>
@@ -24,7 +24,7 @@ include "header.php";
 
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title text-primary">Our Mission</h2>
+          <h2 class="card-title text-warning">Our Mission</h2>
           <p class="card-text">
             To provide customers with a diverse, affordable, and trusted marketplace that simplifies their lives. We aim to bring you the best products, fast delivery, and unmatched customer service - all while making online shopping feel like a breeze.
           </p>
@@ -33,7 +33,7 @@ include "header.php";
 
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title text-primary">Our Vision</h2>
+          <h2 class="card-title text-warning">Our Vision</h2>
           <p class="card-text">
             To become the most customer-centric online store by delivering exceptional value, variety, and convenience, and by being a name you trust for every need.
           </p>
@@ -42,7 +42,7 @@ include "header.php";
 
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title text-primary">Our Core Values</h2>
+          <h2 class="card-title text-warning">Our Core Values</h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><strong>Customer First:</strong> Everything we do starts with you.</li>
             <li class="list-group-item"><strong>Integrity:</strong> We believe in honesty, fairness, and transparency.</li>
@@ -55,7 +55,7 @@ include "header.php";
 
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title text-primary">Why Choose Us?</h2>
+          <h2 class="card-title text-warning">Why Choose Us?</h2>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Over 10,000+ high-quality products in every category</li>
             <li class="list-group-item">Competitive prices, seasonal offers, and flash deals</li>
@@ -68,7 +68,7 @@ include "header.php";
 
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title text-primary">Our Team</h2>
+          <h2 class="card-title text-warning">Our Team</h2>
           <p class="card-text">
             Behind YourStore is a passionate team of innovators, tech enthusiasts, sourcing experts, and customer care professionals dedicated to one mission: delivering excellence at every step. We believe in teamwork, creativity, and building long-term relationships with our customers and partners.
           </p>
@@ -77,14 +77,14 @@ include "header.php";
 
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title text-primary">Customer Satisfaction</h2>
+          <h2 class="card-title text-warning">Customer Satisfaction</h2>
           <p class="card-text">
             With thousands of satisfied customers and growing daily, we're proud of the trust and loyalty we've earned. Our reviews speak for themselves - and we strive to exceed expectations every time.
           </p>
         </div>
       </div>
 
-      <div class="card bg-primary text-white text-center py-4 mb-4">
+      <div class="card bg-warning text-white text-center py-4 mb-4">
         <div class="card-body">
           <h2 class="card-title">Ready to Shop?</h2>
           <p class="card-text">
