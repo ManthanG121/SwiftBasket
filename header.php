@@ -21,8 +21,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
 
 
   <style>
@@ -243,6 +246,14 @@
             </ul>
           </nav>
         </div>
+        <?php
+       include("./db-connection/db connection.php");
+        $customer = $_SESSION["customer_id"];
+        $select = "SELECT count(*) as total_count FROM tbl_cart WHERE tbl_cart.cart_customer_id = $customer";
+        $findingtotal = mysqli_query($conn, $select);
+        $test = mysqli_fetch_array($findingtotal);
+
+        ?>
         <div class="col-lg-2">
           <div class="mt-3 d-flex justify-content-end">
             <div class="d-flex align-items-center gap-3">
@@ -253,10 +264,9 @@
                 <i class="fas fa-heart fa-lg"></i>
                 <span class="cart-count">3</span>
               </a>
-              <a href="#" class="cart-icon position-relative" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasCart">
+              <a href="cart.php" class="cart-icon position-relative" data-bs-target="#offcanvasCart">
                 <i class="fas fa-shopping-bag fa-lg"></i>
-                <span class="cart-count">5</span>
+                <span class="cart-count"> <?= $test["total_count"] ?></span>
               </a>
             </div>
           </div>
