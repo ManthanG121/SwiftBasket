@@ -37,7 +37,7 @@
                         <!-- Contact Form Column -->
                         <div class="col-lg-7 p-4 p-lg-5">
                             <div class="card-body">
-                                <h2 class="card-title text-success mb-4">Contact Us</h2>
+                                <h2 class="card-title text-warning mb-4">Contact Us</h2>
                                 <p class="text-muted mb-4">Have questions? We're here to help! Fill out the form below
                                     and we'll get back to you soon.</p>
 
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="d-flex gap-3">
-                                                <button type="submit" class="btn btn-success px-4 py-2">Submit</button>
+                                                <button type="submit" class="btn btn-warning px-4 py-2">Submit</button>
                                                 <button type="reset"
                                                     class="btn btn-outline-secondary px-4 py-2">Reset</button>
                                             </div>
@@ -91,7 +91,7 @@
                                     <h3 class="h5 fw-bold mb-4">Our Contact Information</h3>
 
                                     <div class="d-flex mb-4">
-                                        <div class="me-3 text-success">
+                                        <div class="me-3 text-warning">
                                             <i class="fas fa-map-marker-alt fa-2x"></i>
                                         </div>
                                         <div>
@@ -101,7 +101,7 @@
                                     </div>
 
                                     <div class="d-flex mb-4">
-                                        <div class="me-3 text-success">
+                                        <div class="me-3 text-warning">
                                             <i class="fas fa-envelope fa-2x"></i>
                                         </div>
                                         <div>
@@ -111,7 +111,7 @@
                                     </div>
 
                                     <div class="d-flex mb-4">
-                                        <div class="me-3 text-success">
+                                        <div class="me-3 text-warning">
                                             <i class="fas fa-phone-alt fa-2x"></i>
                                         </div>
                                         <div>
