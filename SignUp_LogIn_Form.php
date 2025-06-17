@@ -13,14 +13,14 @@
 <body>
     <div class="container">
         <div class="form-box login">
-            <form action="#">
+            <form action="login_insert.php" method="post">
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Email" name="email" required>
+                    <i class='bx bxs-box'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Password" name="pass" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="forgot-link">
