@@ -17,7 +17,7 @@
                 <h1>Login</h1>
                 <div class="input-box">
                     <input type="text" placeholder="Email" name="email" required>
-                    <i class='bx bxs-box'></i>
+                    <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
                     <input type="password" placeholder="Password" name="pass" required>
