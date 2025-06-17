@@ -91,85 +91,85 @@ include "header.php";
 
 <!-- Categories Section -->
 <section class="py-5 overflow-hidden">
-      <div class="container-lg">
+    <div class="container-lg">
         <div class="row">
-          <div class="col-md-12">
+            <div class="col-md-12">
 
-            <div class="section-header d-flex flex-wrap justify-content-between mb-5">
-              <h2 class="section-title">Category</h2>
+                <div class="section-header d-flex flex-wrap justify-content-between mb-5">
+                    <h2 class="section-title">Category</h2>
 
-              <div class="d-flex align-items-center">
-               
-                <div class="swiper-buttons">
-                  <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
-                  <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
+                    <div class="d-flex align-items-center">
+
+                        <div class="swiper-buttons">
+                            <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
+                            <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
             </div>
-            
-          </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+            <div class="col-md-12">
 
-            <div class="category-carousel swiper">
-              <div class="swiper-wrapper">
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-2.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-3.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-4.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-5.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-6.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-7.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-8.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
-                </a>
-                <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
-                </a>
-                
-              </div>
+                <div class="category-carousel swiper">
+                    <div class="swiper-wrapper">
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-2.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-3.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-4.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-5.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-6.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-7.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-8.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
+                        </a>
+                        <a href="category.html" class="nav-link swiper-slide text-center">
+                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
+                        </a>
+
+                    </div>
+                </div>
+
             </div>
-
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
 <!-- Best Selling Products -->
 <section class="py-5 bg-light">
@@ -336,9 +336,9 @@ include "header.php";
                 <div class="card border-0 text-center p-4 h-100 hover-top bg-white">
                     <div class="card-body">
                         <div class="icon-xl bg-primary bg-opacity-10 text-primary rounded-circle mb-4 mx-auto">
-                            
-                                <i class="fas fa-shipping-fast fa-lg"></i>
-                           
+
+                            <i class="fas fa-shipping-fast fa-lg"></i>
+
                         </div>
                         <h5 class="card-title">Free Delivery</h5>
                         <p class="card-text text-muted">On orders over $50</p>
@@ -349,9 +349,9 @@ include "header.php";
                 <div class="card border-0 text-center p-4 h-100 hover-top bg-white">
                     <div class="card-body">
                         <div class="icon-xl bg-success bg-opacity-10 text-success rounded-circle mb-4 mx-auto">
-                            
-                                <i class="fas fa-lock fa-lg"></i>
-                          
+
+                            <i class="fas fa-lock fa-lg"></i>
+
                         </div>
                         <h5 class="card-title">Secure Payment</h5>
                         <p class="card-text text-muted">100% secure checkout</p>
@@ -362,9 +362,9 @@ include "header.php";
                 <div class="card border-0 text-center p-4 h-100 hover-top bg-white">
                     <div class="card-body">
                         <div class="icon-xl bg-warning bg-opacity-10 text-warning rounded-circle mb-4 mx-auto">
-                            
-                               <i class="fas fa-award fa-lg"></i>
-                            
+
+                            <i class="fas fa-award fa-lg"></i>
+
                         </div>
                         <h5 class="card-title">Quality Guarantee</h5>
                         <p class="card-text text-muted">Premium quality products</p>
@@ -375,9 +375,9 @@ include "header.php";
                 <div class="card border-0 text-center p-4 h-100 hover-top bg-white">
                     <div class="card-body">
                         <div class="icon-xl bg-info bg-opacity-10 text-info rounded-circle mb-4 mx-auto">
-                           
-                                <i class="fas fa-percentage fa-lg"></i>
-                            
+
+                            <i class="fas fa-percentage fa-lg"></i>
+
                         </div>
                         <h5 class="card-title">Daily Offers</h5>
                         <p class="card-text text-muted">Save up to 50%</p>
