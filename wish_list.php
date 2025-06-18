@@ -44,6 +44,7 @@ include("./db-connection/db connection.php");
     </div>
     <?php unset($_SESSION['delete']); ?>
 <?php endif; ?>
+<div class="container">
 <div class="text-center mb-5 mt-4">
     <h1 class="display-5 fw-bold text-uppercase">Your Wishlist</h1>
     <p class="text-muted">Browse and manage your saved items</p>
@@ -57,14 +58,14 @@ include("./db-connection/db connection.php");
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             ?>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-6 col-xl-6">
                 <div class="card product-card h-100 border-0 shadow-sm hover-top">
                     <div class="badge bg-success position-absolute top-0 end-0 m-2">
                         <?= $row['product_discount_percentage'] ?>% OFF
                     </div>
                     <div class="product-image">
                         <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
-                            <img src="admin/uplodes/image/<?= ($row['product_img']) ?>" class="card-img-top">
+                            <img src="admin/uplodes/image/<?= ($row['product_img']) ?>" class="card-img-top" style="height: 200px; object-fit: contain;">
                         </a>
                     </div>
                     <div class="card-body d-flex flex-column shadow-sm">
@@ -84,8 +85,8 @@ include("./db-connection/db connection.php");
                             </div>
                         </div>
                         <div class="mt-auto">
-                            <div class="d-flex align-items-center mb-3">
-                                <span class="text-dark fw-bold fs-5 me-2 ms-5"><?= $row['product_sell_price'] ?>
+                            <div class="d-flex align-items-center mb-3 justify-content-center">
+                                <span class="text-dark fw-bold fs-5 me-2"><?= $row['product_sell_price'] ?>
                                     Rs</span>
                                 <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?>
                                     Rs</span>
@@ -98,7 +99,13 @@ include("./db-connection/db connection.php");
                                         <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                                     </button>
                                 </form>
-
+                                <form action="cart_insert.php" method="post" class="flex-grow-1">
+                                    <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                    <input type="hidden" name="cart_qty" value="1">
+                                    <button type="submit" class="btn btn-danger w-100">
+                                        <i class="fas fa-shopping-cart me-2"></i>Remove 
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -111,7 +118,7 @@ include("./db-connection/db connection.php");
     }
     ?>
 </div>
-
+</div>
 <?php
 include 'footer.php';
 ?>

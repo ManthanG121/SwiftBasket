@@ -4,6 +4,7 @@ include("./db-connection/db connection.php");
 $product_id = $_POST["id"];
 $customer = $_SESSION["customer_id"];
 $cart_qty = $_POST["cart_qty"];
+
 $query = "INSERT INTO tbl_cart(`cart_product_id`,`cart_customer_id`,`cart_qty`) VALUES('$product_id','$customer','$cart_qty')";
 $result = mysqli_query($conn, $query);
 if ($result) {
@@ -11,7 +12,5 @@ if ($result) {
     $_SESSION["success"] = "Add Successfully..!";
 
 
-} else {
-
-}
+} 
 ?>
