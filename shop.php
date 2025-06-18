@@ -127,7 +127,7 @@ include("./db-connection/db connection.php");
                         </div>
 
                         <!-- Categories Filter -->
-                        
+
                     </div>
                 </div>
             </div>
@@ -149,16 +149,18 @@ include("./db-connection/db connection.php");
                             ?>
                             <div class="col-md-6 col-lg-4">
                                 <div class="card product-card h-100 border-0 shadow-sm hover-top">
-                                    <div class="badge bg-success position-absolute top-0 end-0 m-2"><?= $row['product_discount_percentage'] ?>% OFF</div>
+                                    <div class="badge bg-success position-absolute top-0 end-0 m-2">
+                                        <?= $row['product_discount_percentage'] ?>% OFF
+                                    </div>
                                     <div class="product-image">
                                         <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
-                                            <img src="admin/uplodes/image/<?= ($row['product_img']) ?>"
-                                                class="card-img-top">
+                                            <img src="admin/uplodes/image/<?= ($row['product_img']) ?>" class="card-img-top">
                                         </a>
                                     </div>
                                     <div class="card-body d-flex flex-column shadow-sm">
                                         <div class="mb-2">
-                                            <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
+                                            <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>"
+                                                class="text-decoration-none">
                                                 <h5 class="card-title mb-1 text-center"><?= ($row['product_name']) ?></h5>
                                             </a>
                                             <div class="d-flex text-center mb-2 ms-3">
@@ -174,13 +176,15 @@ include("./db-connection/db connection.php");
                                         </div>
                                         <div class="mt-auto">
                                             <div class="d-flex align-items-center mb-3">
-                                                <span class="text-dark fw-bold fs-5 me-2 ms-5"><?= $row['product_sell_price'] ?> Rs</span>
+                                                <span class="text-dark fw-bold fs-5 me-2 ms-5"><?= $row['product_sell_price'] ?>
+                                                    Rs</span>
                                                 <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?>
                                                     Rs</span>
                                             </div>
                                             <div class="d-flex gap-2">
-                                                <form action="add_to_cart.php" method="post" class="flex-grow-1">
+                                                <form action="cart_insert.php" method="post" class="flex-grow-1">
                                                     <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                                    <input type="hidden" name="cart_qty" value="1">
                                                     <button type="submit" class="btn btn-success w-100">
                                                         <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                                                     </button>

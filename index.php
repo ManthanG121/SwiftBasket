@@ -251,8 +251,8 @@ include("./db-connection/db connection.php");
         <div class="swiper featured-slider overflow-hidden">
             <div class="swiper-wrapper">
                 <?php
-                
-                $query = "SELECT * FROM tbl_product INNER JOIN tbl_feature ON tbl_product.product_id = tbl_feature.product_id"; 
+
+                $query = "SELECT * FROM tbl_product INNER JOIN tbl_feature ON tbl_product.product_id = tbl_feature.product_id";
                 $result = mysqli_query($conn, $query);
 
                 if (mysqli_num_rows($result) > 0) {
@@ -265,11 +265,13 @@ include("./db-connection/db connection.php");
                                 </div>
                                 <div class="product-image">
                                     <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
-                                        <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top" alt="Product">
+                                        <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top"
+                                            alt="Product">
                                     </a>
                                 </div>
                                 <div class="card-body d-flex flex-column">
-                                    <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
+                                    <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>"
+                                        class="text-decoration-none">
                                         <h5 class="card-title mb-1 text-center"><?= $row['product_name'] ?></h5>
                                     </a>
                                     <div class="d-flex justify-content-center mb-2">
@@ -282,12 +284,15 @@ include("./db-connection/db connection.php");
                                     </div>
                                     <div class="mt-auto">
                                         <div class="d-flex justify-content-center align-items-center mb-3">
-                                            <span class="text-dark fw-bold fs-5 me-2"><?= $row['product_sell_price'] ?> Rs</span>
-                                            <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?> Rs</span>
+                                            <span class="text-dark fw-bold fs-5 me-2"><?= $row['product_sell_price'] ?>
+                                                Rs</span>
+                                            <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?>
+                                                Rs</span>
                                         </div>
                                         <div class="d-flex gap-2">
-                                            <form action="add_to_cart.php" method="post" class="flex-grow-1">
+                                            <form action="cart_insert.php" method="post" class="flex-grow-1">
                                                 <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                                <input type="hidden" name="cart_qty" value="1">
                                                 <button type="submit" class="btn btn-success w-100">
                                                     <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                                                 </button>
@@ -451,26 +456,29 @@ include("./db-connection/db connection.php");
     .category-card:hover {
         background-color: #f8f9fa;
     }
-    .product-image {
-    height: 250px;
-    width: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.product-image img {
-    max-height: 100%;
-    object-fit: cover;
-}
-.hover-top {
-    transition: all 0.3s ease-in-out;
-}
-.hover-top:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
 
+    .product-image {
+        height: 250px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .product-image img {
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    .hover-top {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hover-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
 </style>
 
 <!-- Initialize Swiper -->
