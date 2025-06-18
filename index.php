@@ -311,8 +311,9 @@ include("./db-connection/db connection.php");
                                                 Rs</span>
                                         </div>
                                         <div class="d-flex gap-2">
-                                            <form action="add_to_cart.php" method="post" class="flex-grow-1">
+                                            <form action="cart_insert.php" method="post" class="flex-grow-1">
                                                 <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                                <input type="hidden" name="cart_qty" value="1">
                                                 <button type="submit" class="btn btn-success w-100">
                                                     <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                                                 </button>
