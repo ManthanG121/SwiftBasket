@@ -252,8 +252,8 @@
         $select = "SELECT count(*) as total_count FROM tbl_cart WHERE tbl_cart.cart_customer_id = $customer";
         $findingtotal = mysqli_query($conn, $select);
         $test = mysqli_fetch_array($findingtotal);
-
         ?>
+
         <?php
         include("./db-connection/db connection.php");
         $customer = $_SESSION["customer_id"];
