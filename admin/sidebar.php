@@ -48,6 +48,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="best_selling_products-list.php" class="collapsed">
+                        <i class="far fa-star"></i>
+                        <p>Best Selling Product</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="contact-list.php" class="collapsed">
                         <i class="fas fa-phone"></i>
                         <p>Contact Us</p>

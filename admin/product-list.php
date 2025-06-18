@@ -77,6 +77,7 @@ include "sidebar.php";
                                 <th>Sell Price</th>
                                 <th>Category</th>
                                 <th>Featured</th>
+                                <th>Best Selling Products</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -103,6 +104,12 @@ include "sidebar.php";
                                     <td><span class="badge bg-info text-dark"><?= $row["category"] ?></span></td>
                                     <td>
                                         <a href="Featured-insert.php?product_id=<?= $row["product_id"] ?>"
+                                            class="text-warning fs-5">
+                                            <i class="fa fa-star"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="best_selling_product-insert.php?product_id=<?= $row["product_id"] ?>"
                                             class="text-warning fs-5">
                                             <i class="fa fa-star"></i>
                                         </a>
