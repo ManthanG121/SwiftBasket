@@ -248,17 +248,20 @@ include("./db-connection/db connection.php");
                                             <tbody>
 
                                                 <?php
+                                                $total = 0;
                                                 $customer_id = $_SESSION["customer_id"];
                                                 $query = "SELECT * FROM tbl_cart INNER JOIN tbl_product ON tbl_product.product_id = tbl_cart.cart_product_id WHERE tbl_cart.cart_customer_id = $customer_id";
                                                 $result = mysqli_query($conn, $query);
                                                 while ($row = mysqli_fetch_array($result)) {
-                                                    $Total = $row['cart_qty'] * $row['product_sell_price'];
+                                                    $lineTotal = $row['cart_qty'] * $row['product_sell_price'];
+                                                    $total += $lineTotal;
+
                                                     ?>
                                                     <tr>
                                                         <td><?= $row["product_name"] ?></td>
                                                         <td><?= $row["product_sell_price"] ?></td>
                                                         <td><?= $row["cart_qty"] ?></td>
-                                                        <td> <?= $Total ?></td>
+                                                        <td> <?= $row["product_sell_price"] ?></td>
                                                     </tr>
                                                     <?php
                                                 }
@@ -267,7 +270,7 @@ include("./db-connection/db connection.php");
                                             <tfoot>
                                                 <tr>
                                                     <th colspan="3">Subtotal</th>
-                                                    <th>₹ <?= $Total ?></th>
+                                                    <th>₹ <?= $total ?></th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="3">Shipping</th>
@@ -275,7 +278,7 @@ include("./db-connection/db connection.php");
                                                 </tr>
                                                 <tr class="fw-bold">
                                                     <th colspan="3">Total</th>
-                                                    <th><span class="badge bg-success">₹ <?= $Total ?></span></th>
+                                                    <th><span class="badge bg-success">₹ <?= $total ?></span></th>
                                                 </tr>
                                             </tfoot>
 
@@ -302,58 +305,62 @@ include("./db-connection/db connection.php");
         <div class="col-lg-4">
             <div class="card border-0 shadow-sm sticky-top" style="top: 20px;">
                 <?php
+                $total = 0;
                 $customer_id = $_SESSION["customer_id"];
                 $query = "SELECT * FROM tbl_cart INNER JOIN tbl_product ON tbl_product.product_id = tbl_cart.cart_product_id WHERE tbl_cart.cart_customer_id = $customer_id";
                 $result = mysqli_query($conn, $query);
-                 ($row = mysqli_fetch_array($result)) ;
-                    $Total = $row['cart_qty'] * $row['product_sell_price'];
-                    ?>
-                    <div class="card-header bg-white py-3">
-                        <h2 class="h5 mb-0">Order Summary</h2>
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $lineTotal = $row['cart_qty'] * $row['product_sell_price'];
+                    $total += $lineTotal;
+                }
+                ?>
+                <div class="card-header bg-white py-3">
+                    <h2 class="h5 mb-0">Order Summary</h2>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal (2 items)</span>
+                        <span></span>
                     </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>Subtotal (2 items)</span>
-                            <span></span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>Shipping</span>
-                            <span>Free</span>
-                        </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
 
-                        <hr>
-                        <div class="d-flex justify-content-between fw-bold mb-3">
-                            <span>Total</span>
-                            <span>₹ <?= $Total ?></span>
-                        </div>
+                    <hr>
+                    <div class="d-flex justify-content-between fw-bold mb-3">
+                        <span>Total</span>
+                        <span>₹ <?= $total ?></span>
+                    </div>
 
-                        <div class="accordion mb-4" id="promoAccordion">
-                            <div class="accordion-item border-0">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed bg-light" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#promoCollapse">
-                                        <i class="fas fa-tag me-2 text-success"></i>Have a promo code?
-                                    </button>
-                                </h2>
-                                <div id="promoCollapse" class="accordion-collapse collapse"
-                                    data-bs-parent="#promoAccordion">
-                                    <div class="accordion-body p-2 bg-light">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Enter promo code">
-                                            <button class="btn btn-success" type="button">Apply</button>
-                                        </div>
+                    <div class="accordion mb-4" id="promoAccordion">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-light" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#promoCollapse">
+                                    <i class="fas fa-tag me-2 text-success"></i>Have a promo code?
+                                </button>
+                            </h2>
+                            <div id="promoCollapse" class="accordion-collapse collapse"
+                                data-bs-parent="#promoAccordion">
+                                <div class="accordion-body p-2 bg-light">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Enter promo code">
+                                        <button class="btn btn-success" type="button">Apply</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="alert alert-success d-flex align-items-center" role="alert">
-                            <i class="fas fa-check-circle me-2"></i>
-                            <div>
-                                Your order qualifies for free shipping!
-                            </div>
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <div>
+                            Your order qualifies for free shipping!
                         </div>
-                    
+                    </div>
+
                 </div>
             </div>
         </div>
