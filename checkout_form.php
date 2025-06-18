@@ -260,25 +260,25 @@ include("./db-connection/db connection.php");
                                                         <td><?= $row["cart_qty"] ?></td>
                                                         <td> <?= $Total ?></td>
                                                     </tr>
-
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th colspan="3">Subtotal</th>
-                                                        <th>$109.97</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th colspan="3">Shipping</th>
-                                                        <th>Free</th>
-                                                    </tr>
-                                                    <tr class="fw-bold">
-                                                        <th colspan="3">Total</th>
-                                                        <th><span class="badge bg-success">₹ <?= $Total ?></span></th>
-                                                    </tr>
-                                                </tfoot>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th colspan="3">Subtotal</th>
+                                                    <th>₹ <?= $Total ?></th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="3">Shipping</th>
+                                                    <th>Free</th>
+                                                </tr>
+                                                <tr class="fw-bold">
+                                                    <th colspan="3">Total</th>
+                                                    <th><span class="badge bg-success">₹ <?= $Total ?></span></th>
+                                                </tr>
+                                            </tfoot>
+
                                         </table>
                                     </div>
                                 </div>
@@ -305,7 +305,7 @@ include("./db-connection/db connection.php");
                 $customer_id = $_SESSION["customer_id"];
                 $query = "SELECT * FROM tbl_cart INNER JOIN tbl_product ON tbl_product.product_id = tbl_cart.cart_product_id WHERE tbl_cart.cart_customer_id = $customer_id";
                 $result = mysqli_query($conn, $query);
-                while ($row = mysqli_fetch_array($result)) {
+                 ($row = mysqli_fetch_array($result)) ;
                     $Total = $row['cart_qty'] * $row['product_sell_price'];
                     ?>
                     <div class="card-header bg-white py-3">
@@ -353,8 +353,7 @@ include("./db-connection/db connection.php");
                                 Your order qualifies for free shipping!
                             </div>
                         </div>
-                        <?php
-                } ?>
+                    
                 </div>
             </div>
         </div>
