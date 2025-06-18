@@ -247,12 +247,19 @@
           </nav>
         </div>
         <?php
-       include("./db-connection/db connection.php");
+        include("./db-connection/db connection.php");
         $customer = $_SESSION["customer_id"];
         $select = "SELECT count(*) as total_count FROM tbl_cart WHERE tbl_cart.cart_customer_id = $customer";
         $findingtotal = mysqli_query($conn, $select);
         $test = mysqli_fetch_array($findingtotal);
 
+        ?>
+        <?php
+        include("./db-connection/db connection.php");
+        $customer = $_SESSION["customer_id"];
+        $select = "SELECT count(*) as total_countw FROM tbl_wishlist WHERE tbl_wishlist.wishlist_customer = $customer";
+        $findingtotal = mysqli_query($conn, $select);
+        $testw = mysqli_fetch_array($findingtotal);
         ?>
         <div class="col-lg-2">
           <div class="mt-3 d-flex justify-content-end">
@@ -260,9 +267,9 @@
               <a href="#" class="user-icon position-relative">
                 <i class="fas fa-user fa-lg"></i>
               </a>
-              <a href="#" class="wishlist-icon position-relative">
+              <a href="wish_list.php" class="wishlist-icon position-relative">
                 <i class="fas fa-heart fa-lg"></i>
-                <span class="cart-count">3</span>
+                <span class="cart-count"><?= $testw["total_countw"] ?></span>
               </a>
               <a href="cart.php" class="cart-icon position-relative" data-bs-target="#offcanvasCart">
                 <i class="fas fa-shopping-bag fa-lg"></i>

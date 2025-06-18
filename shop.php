@@ -189,7 +189,7 @@ include("./db-connection/db connection.php");
                                                         <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                                                     </button>
                                                 </form>
-                                                <form action="addtowishlist.php" method="post">
+                                                <form action="wish_list_insert.php" method="post">
                                                     <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
                                                     <button type="submit" class="btn btn-outline-secondary">
                                                         <i class="far fa-heart"></i>
