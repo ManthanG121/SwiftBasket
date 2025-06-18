@@ -146,9 +146,9 @@ include("./db-connection/db connection.php");
                             <strong>₹<?= $subtotal ?></strong>
                         </li>
                     </ul>
-                    <button class="btn btn-primary w-100 rounded-pill fw-semibold">
+                    <a href="checkout_form.php"><button class="btn btn-primary w-100 rounded-pill fw-semibold">
                         Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
-                    </button>
+                    </button></a>
                 </div>
             </div>
         </div>
