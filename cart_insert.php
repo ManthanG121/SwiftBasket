@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["login"])) {
+  echo "<script> window.location.href='SignUp_LogIn_Form.php'</script>";
+  exit;
+}else{
+session_start();
 include("./db-connection/db connection.php");
 $product_id = $_POST["id"];
 $customer = $_SESSION["customer_id"];
@@ -13,4 +18,5 @@ if ($result) {
 
 
 } 
+}
 ?>
