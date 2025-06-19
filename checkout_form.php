@@ -2,7 +2,7 @@
 include "header.php";
 include("./db-connection/db connection.php");
 ?>
-
+<form action="order_insert.php" method="post" enctype="mulple/form-data">
 <div class="container py-5">
     <div class="row g-5">
         <!-- Checkout Form -->
@@ -40,7 +40,7 @@ include("./db-connection/db connection.php");
                         <div class="tab-pane fade show active" id="shipping" role="tabpanel">
                             <h4 class="mb-4">Shipping Information</h4>
 
-                            <form id="shippingForm">
+                            
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="firstName" class="form-label">First Name</label>
@@ -109,9 +109,11 @@ include("./db-connection/db connection.php");
                                         <input type="text" class="form-control" name="city" id="city" required>
                                     </div>
                                     <div class="col-md-6">
+                                        <input type="hidden" name="date" id="datevisiable">
                                         <label for="zip" class="form-label">Zip Code</label>
-                                        <input type="text" class="form-control" name="zip" id="zip" required>
+                                        <input type="text" class="form-control" name="zip_code" id="zip" required>
                                     </div>
+                                    
                                     <!-- <div class="col-12">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="saveAddress">
@@ -130,30 +132,29 @@ include("./db-connection/db connection.php");
                                         Continue to Payment<i class="fas fa-chevron-right ms-2"></i>
                                     </button>
                                 </div>
-                            </form>
+                           
                         </div>
 
                         <!-- Payment Information -->
                         <div class="tab-pane fade" id="payment" role="tabpanel">
                             <h4 class="mb-4">Payment Method</h4>
 
-                            <form id="paymentForm">
+                            
                                 <div class="mb-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentMethod"
-                                            id="creditCard" checked>
+                                        <input class="form-check-input" type="radio" name="paymentMethod" value="Credit/Debit Card" id="creditCard" checked>
                                         <label class="form-check-label fw-bold" for="creditCard">
                                             Credit/Debit Card
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" value="PayPal" id="paypal" checked>
                                         <label class="form-check-label fw-bold" for="paypal">
                                             PayPal
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentMethod" id="cod">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" value="Cash on Delivery" id="cod" checked>
                                         <label class="form-check-label fw-bold" for="cod">
                                             Cash on Delivery
                                         </label>
@@ -181,7 +182,7 @@ include("./db-connection/db connection.php");
                                         </div>
                                     </div>
                                 </div> -->
-
+                                <input type="hidden" name="date" id="datevisiable">
                                 <!-- PayPal Form (hidden by default) -->
                                 <div id="paypalForm" class="d-none text-center py-4">
                                     <p>You will be redirected to PayPal to complete your payment</p>
@@ -207,7 +208,7 @@ include("./db-connection/db connection.php");
                                         Review Order<i class="fas fa-chevron-right ms-2"></i>
                                     </button>
                                 </div>
-                            </form>
+                            
                         </div>
 
                         <!-- Order Review -->
@@ -279,6 +280,7 @@ include("./db-connection/db connection.php");
                                                 <tr class="fw-bold">
                                                     <th colspan="3">Total</th>
                                                     <th><span class="badge bg-success">₹ <?= $total ?></span></th>
+                                                    
                                                 </tr>
                                             </tfoot>
 
@@ -291,7 +293,7 @@ include("./db-connection/db connection.php");
                                 <button type="button" class="btn btn-outline-secondary" onclick="prevStep('payment')">
                                     <i class="fas fa-chevron-left me-2"></i>Back
                                 </button>
-                                <button type="button" class="btn btn-success" onclick="placeOrder()">
+                                <button type="submit" name="submit" value="submit" class="btn btn-success" onclick="placeOrder()">
                                     Place Order<i class="fas fa-check ms-2"></i>
                                 </button>
                             </div>
@@ -332,6 +334,7 @@ include("./db-connection/db connection.php");
                     <div class="d-flex justify-content-between fw-bold mb-3">
                         <span>Total</span>
                         <span>₹ <?= $total ?></span>
+                        <input type="hidden" value="<?= $total ?>" name="total">
                     </div>
 
                     <div class="accordion mb-4" id="promoAccordion">
@@ -366,8 +369,18 @@ include("./db-connection/db connection.php");
         </div>
     </div>
 </div>
+</form>
 
 <script>
+  
+    setTimeout(() => {
+        const now = new Date();
+        const yyyy = now.getFullYear();
+        const mm = String(now.getMonth() + 1).padStart(2, '0');
+        const dd = String(now.getDate()).padStart(2, '0');
+        document.getElementById("datevisiable").value = `${yyyy}-${mm}-${dd}`;
+    }, 100);
+
     // Handle payment method selection
     document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
         radio.addEventListener('change', function () {
@@ -435,7 +448,8 @@ include("./db-connection/db connection.php");
 
         document.getElementById('reviewPaymentInfo').innerHTML = paymentInfo;
     });
-</script>
+    </script>
+
 
 <?php
 include 'footer.php';

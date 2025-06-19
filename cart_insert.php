@@ -15,8 +15,6 @@ $result = mysqli_query($conn, $query);
 if ($result) {
     echo "<script>window.location.href='cart.php'</script>";
     $_SESSION["success"] = "Add Successfully..!";
-
-
 } 
 }
 ?>
