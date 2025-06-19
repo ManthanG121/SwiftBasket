@@ -246,21 +246,36 @@
             </ul>
           </nav>
         </div>
-        <?php
-        include("./db-connection/db connection.php");
-        $customer = $_SESSION["customer_id"];
-        $select = "SELECT count(*) as total_count FROM tbl_cart WHERE tbl_cart.cart_customer_id = $customer";
-        $findingtotal = mysqli_query($conn, $select);
-        $test = mysqli_fetch_array($findingtotal);
-        ?>
 
         <?php
         include("./db-connection/db connection.php");
-        $customer = $_SESSION["customer_id"];
-        $select = "SELECT count(*) as total_countw FROM tbl_wishlist WHERE tbl_wishlist.wishlist_customer = $customer";
-        $findingtotal = mysqli_query($conn, $select);
-        $testw = mysqli_fetch_array($findingtotal);
+        if (isset($_SESSION["customer_id"])) {
+          $customer = $_SESSION["customer_id"];
+          $stmt = $conn->prepare("SELECT count(*) as total_count FROM tbl_cart WHERE cart_customer_id = ?");
+          $stmt->bind_param("i", $customer);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          $test = $result->fetch_assoc();
+        } else {
+          $test["total_count"] = 0;
+        }
         ?>
+        <!-- cart count -->
+        <?php
+        include("./db-connection/db connection.php");
+        if (isset($_SESSION["customer_id"])) {
+          $customer = $_SESSION["customer_id"];
+          $stmt = $conn->prepare("SELECT COUNT(*) AS total_countw FROM tbl_wishlist WHERE wishlist_customer = ?");
+          $stmt->bind_param("i", $customer);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          $testw = $result->fetch_assoc();
+        } else {
+
+          $testw["total_countw"] = 0;
+        }
+        ?>
+<!-- wish list count -->
         <div class="col-lg-2">
           <div class="mt-3 d-flex justify-content-end">
             <div class="d-flex align-items-center gap-3">
