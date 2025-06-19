@@ -60,6 +60,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="order-list.php" class="collapsed">
+                        <i class="fas fa-box-open"></i>
+                        <p>Order List</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="Blogs-list.php" class="collapsed">
                         <i class="fas fa-layer-group"></i>
                         <p>Blogs</p>
