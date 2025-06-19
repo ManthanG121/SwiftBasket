@@ -149,14 +149,14 @@ include("./db-connection/db connection.php");
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="paymentMethod" value="PayPal"
-                                            id="paypal" checked>
+                                            id="paypal">
                                         <label class="form-check-label fw-bold" for="paypal">
                                             PayPal
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="paymentMethod"
-                                            value="Cash on Delivery" id="cod" checked>
+                                            value="Cash on Delivery" id="cod">
                                         <label class="form-check-label fw-bold" for="cod">
                                             Cash on Delivery
                                         </label>
@@ -164,11 +164,12 @@ include("./db-connection/db connection.php");
                                 </div>
 
                                 <!-- Credit Card Form (shown by default) -->
-                                <!-- <div id="creditCardForm">
+                                <div id="creditCardForm">
                                     <div class="row g-3">
                                         <div class="col-12">
                                             <label for="cardNumber" class="form-label">Card Number</label>
-                                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                            <input type="text" class="form-control" id="cardNumber"
+                                                placeholder="1234 5678 9012 3456">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="cardName" class="form-label">Name on Card</label>
@@ -183,7 +184,8 @@ include("./db-connection/db connection.php");
                                             <input type="text" class="form-control" id="cardCvv" placeholder="123">
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
+
                                 <input type="hidden" name="date" id="datevisiable">
                                 <!-- PayPal Form (hidden by default) -->
                                 <div id="paypalForm" class="d-none text-center py-4">

@@ -47,7 +47,7 @@ if ($result) {
 
 if ($result) {
     $_SESSION["success"] = "Order Placed..!";
-    echo "<script>window.location.href='cart.php'</script>";
+    echo "<script>window.location.href='order_successful.php'</script>";
 
 } else {
 
