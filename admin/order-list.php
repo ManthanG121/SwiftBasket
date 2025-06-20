@@ -23,12 +23,12 @@ include("../db-connection/db connection.php");
                             <tr>
                                 <th>#</th>
                                 <th>Customer Name</th>
-                                <th>MRP</th>
+                                <th>Total Bill</th>
                                 <th>Address</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                                <th>Date</th> 
                                 <th>Payment Term</th>
                                 <th>Payment Status</th>
+                                <th>Order Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -41,40 +41,25 @@ include("../db-connection/db connection.php");
                                 ?>
                                 <tr>
                                     <td><?= ++$count; ?></td>
-                                    <td class="fw-semibold"><?= $row["product_name"] ?></td>
+                                    <td class="fw-semibold"><?= $row["first_name"] ?> <?= $row["last_name"] ?></td>
+                                    <td><span class="badge bg-secondary">₹<?= $row["order_master_total"] ?></span></td>
+                                    <td><span class="fw-bold"><?= $row["address"] ?>, <?= $row["city"] ?>-<?= $row["zip_code"] ?>, <?= $row["state"] ?></span>
+                                    </td>
+                                    <td><span class="text-success fw-semibold"><?= $row["date"] ?></span>
+                                    </td>
+                                    <td><span class="badge bg-info text-dark"><?= $row["order_master_payment_method"] ?></span></td>
+                                    <td><span class="badge bg-info text-dark"><?= $row["order_master_payment_status"] ?></span></td>
+                                    <td><span class="badge bg-success"><?= $row["order_master_status"] ?></span></td>
+                                
                                     <td>
-                                        <img src="uplodes/image/<?= $row["product_img"] ?>" class="rounded border"
-                                            style="width: 50px; height: 50px;" alt="">
-                                    </td>
-                                    <td><span class="badge bg-secondary">₹<?= $row["product_mrp"] ?></span></td>
-                                    <td><span class="text-danger fw-bold"><?= $row["product_discount_percentage"] ?>%</span>
-                                    </td>
-                                    <td><span class="text-success fw-semibold">₹<?= $row["product_discount_value"] ?></span>
-                                    </td>
-                                    <td><span class="badge bg-success">₹<?= $row["product_sell_price"] ?></span></td>
-                                    <td><span class="badge bg-info text-dark"><?= $row["category"] ?></span></td>
-                                    <td>
-                                        <a href="Featured-insert.php?product_id=<?= $row["product_id"] ?>"
-                                            class="text-warning fs-5">
-                                            <i class="fa fa-star"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="best_selling_product-insert.php?product_id=<?= $row["product_id"] ?>"
-                                            class="text-warning fs-5">
-                                            <i class="fa fa-star"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="product-view.php?product_id=<?= $row["product_id"] ?>"
-                                            class="btn btn-sm btn-outline-info mb-1" title="View">
+                                        <a href="order-view.php" class="btn btn-sm btn-outline-info mb-1" title="View">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="product-edit.php?product_id=<?= $row["product_id"] ?>"
+                                        <a href="order-update.php?order_master_id=<?= $row["order_master_id"] ?>"
                                             class="btn btn-sm btn-outline-success mb-1" title="Edit">
                                             <i class="fa fa-pen"></i>
                                         </a>
-                                        <a href="product-delete.php?product_id=<?= $row["product_id"] ?>"
+                                        <a href="order-delete.php?order_master_id=<?= $row["order_master_id"] ?>"
                                             class="btn btn-sm btn-outline-danger mb-1" title="Delete"
                                             onclick="return confirm('Are you sure you want to delete this product?');">
                                             <i class="fa fa-trash"></i>
