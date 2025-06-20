@@ -32,8 +32,9 @@ $res = mysqli_query($conn, $sel);
 
 while ($row = mysqli_fetch_array($res)) {
     $product_id = $row["cart_product_id"];
+    $customer = $_SESSION["customer_id"];
     $cardq = $row["cart_qty"];
-    $sel = "INSERT INTO tbl_order_master_child(`order_child_order_master_id`,`order_child_product_id`,`order_child_qty`,`order_child_total_price`) VALUES('$master_id','$product_id','$cardq','$totaloc')";
+    $sel = "INSERT INTO tbl_order_master_child(`order_child_customer_id`,`order_child_order_master_id`,`order_child_product_id`,`order_child_qty`,`order_child_total_price`) VALUES('$customer','$master_id','$product_id','$cardq','$totaloc')";
     mysqli_query($conn, $sel);
 }
 

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+  echo "<script> window.location.href='SignUp_LogIn_Form.php'</script>";
+  exit;
+}
 include 'header.php';
 include("./db-connection/db connection.php");
 ?>

@@ -3,6 +3,38 @@ include "header.php";
 include "sidebar.php";
 include("../db-connection/db connection.php");
 ?>
+<?php if (isset($_SESSION['edit'])): ?>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;text-align: center; margin-top: 100px;">
+        <div class="toast text-center align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <?= htmlspecialchars($_SESSION['edit']) ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <?php unset($_SESSION['edit']); ?>
+<?php endif; ?>
+<?php if (isset($_SESSION['delete'])): ?>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;text-align: center; margin-top: 100px;">
+        <div class="toast text-center align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <?= htmlspecialchars($_SESSION['delete']) ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <?php unset($_SESSION['delete']); ?>
+<?php endif; ?>
 <div class="container">
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
@@ -52,14 +84,14 @@ include("../db-connection/db connection.php");
                                     <td><span class="badge bg-success"><?= $row["order_master_status"] ?></span></td>
                                 
                                     <td>
-                                        <a href="order-view.php" class="btn btn-sm btn-outline-info mb-1" title="View">
+                                        <a href="order-view.php?order_master_customer_id=<?= $row['order_master_customer_id'] ?>&order_master_id=<?= $row['order_master_id'] ?>" class="btn btn-sm btn-outline-info mb-1" title="View">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="order-update.php?order_master_id=<?= $row["order_master_id"] ?>"
+                                        <a href="order_status_edit.php?order_master_customer_id=<?= $row['order_master_customer_id'] ?>&order_master_id=<?= $row['order_master_id'] ?>"
                                             class="btn btn-sm btn-outline-success mb-1" title="Edit">
                                             <i class="fa fa-pen"></i>
                                         </a>
-                                        <a href="order-delete.php?order_master_id=<?= $row["order_master_id"] ?>"
+                                        <a href="order_delete.php?order_master_customer_id=<?= $row['order_master_customer_id'] ?>&order_master_id=<?= $row['order_master_id'] ?>"
                                             class="btn btn-sm btn-outline-danger mb-1" title="Delete"
                                             onclick="return confirm('Are you sure you want to delete this product?');">
                                             <i class="fa fa-trash"></i>

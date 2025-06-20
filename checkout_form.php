@@ -260,13 +260,13 @@ include("./db-connection/db connection.php");
                                                     while ($row = mysqli_fetch_array($result)) {
                                                         $lineTotal = $row['cart_qty'] * $row['product_sell_price'];
                                                         $total += $lineTotal;
-
+                                                        
                                                         ?>
                                                         <tr>
                                                             <td><?= $row["product_name"] ?></td>
                                                             <td><?= $row["product_sell_price"] ?></td>
                                                             <td><?= $row["cart_qty"] ?></td>
-                                                            <td> <?= $row["product_sell_price"] ?></td>
+                                                            <td><?=$lineTotal ?></td>
                                                         </tr>
                                                         <?php
                                                     }
@@ -329,7 +329,7 @@ include("./db-connection/db connection.php");
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-2">
                             <span>Subtotal (2 items)</span>
-                            <span></span>
+                            <span><?= $total ?></span>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <span>Shipping</span>

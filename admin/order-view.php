@@ -13,17 +13,19 @@ include "sidebar.php";
             <table class="table table-bordered">
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM `tbl_order_master`";
-                    $result = mysqli_query($conn,$query);
-                    ($row= mysqli_fetch_array($result));
+                    $customer_id = $_GET['order_master_customer_id'];
+                    $order_master_id = $_GET['order_master_id'];
+                    $query = "SELECT * FROM `tbl_order_master` WHERE order_master_customer_id = $customer_id AND tbl_order_master.order_master_id= $order_master_id";
+                    $result = mysqli_query($conn, $query);
+                    ($row = mysqli_fetch_array($result));
                     ?>
                     <tr>
                         <th>Order ID</th>
                         <td><?= $row['order_master_id'] ?></td>
                         <th>Payment Method</th>
                         <td><?= $row['order_master_payment_method'] ?></td>
-                        
-                    </tr> 
+
+                    </tr>
                     <tr>
                         <th>Customer ID</th>
                         <td><?= $row['order_master_customer_id'] ?></td>
@@ -38,12 +40,13 @@ include "sidebar.php";
                     </tr>
                     <tr>
                         <th>Total Price</th>
-                         <td><?= $row['order_master_total'] ?></td>
-                        
-                       <th>Shipping Address</th>
-                         <td><?= $row['address'] ?>, <?= $row['city'] ?>-<?= $row['zip_code'] ?>, <?= $row['state'] ?></td>
+                        <td><?= $row['order_master_total'] ?></td>
+
+                        <th>Shipping Address</th>
+                        <td><?= $row['address'] ?>, <?= $row['city'] ?>-<?= $row['zip_code'] ?>, <?= $row['state'] ?>
+                        </td>
                     </tr>
-                   
+
                 </tbody>
             </table>
         </div>
@@ -57,31 +60,38 @@ include "sidebar.php";
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Total</th>
-                        <th>Created At</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    $customer_id = $_GET['order_master_customer_id'];
+                    $order_master_id = $_GET['order_master_id'];
+                    $query2 = "SELECT * FROM tbl_order_master_child INNER JOIN tbl_product ON tbl_order_master_child.order_child_product_id = tbl_product.product_id WHERE tbl_order_master_child.order_child_customer_id = $customer_id AND tbl_order_master_child.order_child_order_master_id	 = $order_master_id";
+                    $result = mysqli_query($conn, $query2);
+                    while ($row = mysqli_fetch_array($result)) {
+                        $lineTotal = $row['order_child_qty'] * $row['product_sell_price'];
+                        ?>
+                        <tr>
+                            <td><?= $row["product_name"] ?></td>
+                            <td><?= $row["order_child_qty"] ?></td>
+                            <td><?= $row["product_sell_price"] ?></td>
+                            <td><?= $lineTotal ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    $customer_id = $_GET['order_master_customer_id'];
+                    $order_master_id = $_GET['order_master_id'];
+                    $query2 = "SELECT * FROM tbl_order_master_child INNER JOIN tbl_product ON tbl_order_master_child.order_child_product_id = tbl_product.product_id WHERE tbl_order_master_child.order_child_customer_id = $customer_id AND tbl_order_master_child.order_child_order_master_id	 = $order_master_id";
+                    $result = mysqli_query($conn, $query2);
+                    ($row = mysqli_fetch_array($result));
+                    ?>
                     <tr>
-                        <td>Comfortable Cotton T-Shirt</td>
-                        <td>2</td>
-                        <td>₹1,624.35</td>
-                        <td>₹3,248.70</td>
-                        <td>19/02/2025 11:45 PM</td>
+                        <th colspan="3">TOTAL BILL :</th>
+                        <th colspan="1"><?= $row["order_child_total_price"] ?></th>
                     </tr>
-                    <tr>
-                        <td>Trendy Leather Jacket</td>
-                        <td>1</td>
-                        <td>₹4,249.15</td>
-                        <td>₹4,249.15</td>
-                        <td>19/02/2025 11:45 PM</td>
-                    </tr>
-                    <tr>
-                        <td>Classic Formal Suit</td>
-                        <td>1</td>
-                        <td>₹5,399.10</td>
-                        <td>₹5,399.10</td>
-                        <td>19/02/2025 11:45 PM</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
