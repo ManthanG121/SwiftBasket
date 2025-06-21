@@ -111,7 +111,7 @@ include("./db-connection/db connection.php");
                                     <div class="col-md-6">
                                         <label for="zip" class="form-label">Zip Code</label>
                                         <input type="text" class="form-control" name="zip_code" id="zip" required>
-                                        <input type="date" name="date" id="dateVisible">
+                                        <input type="hidden" name="d" id="dateVisible">
                                     </div>
 
                                     <!-- <div class="col-12">
@@ -380,9 +380,7 @@ include("./db-connection/db connection.php");
 
 <script>
 
-    setTimeout(() => {
-        document.getElementById("dateVisible").value = new Date().getFullYear() + "-" + ("0" + (new Date().getMonth() + 1)) + "-" + new Date().getDate();
-    }, 100)
+     document.getElementById("dateVisible").value = new Date().toISOString().split('T')[0];
 
     // Handle payment method selection
     document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {

@@ -3,7 +3,7 @@ include "./db-connection/db connection.php";
 session_start();
 $customer = $_SESSION["customer_id"];
 $total = $_POST['total'];
-$date = $_POST['date'];
+$date = $_POST['d'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];
