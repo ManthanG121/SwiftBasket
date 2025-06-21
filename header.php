@@ -275,7 +275,7 @@
           $testw["total_countw"] = 0;
         }
         ?>
-<!-- wish list count -->
+        <!-- wish list count -->
         <div class="col-lg-2">
           <div class="mt-3 d-flex justify-content-end">
             <div class="d-flex align-items-center gap-3">

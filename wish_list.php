@@ -1,11 +1,11 @@
 <?php
-session_start();
-if (!isset($_SESSION["login"])) {
-  echo "<script> window.location.href='SignUp_LogIn_Form.php'</script>";
-  exit;
-}
-include 'header.php';
 include("./db-connection/db connection.php");
+include 'header.php';
+if (!isset($_SESSION["login"])) {
+    echo "<script> window.location.href='SignUp_LogIn_Form.php'</script>";
+}
+
+
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -105,10 +105,11 @@ include("./db-connection/db connection.php");
                                             <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                                         </button>
                                     </form>
-                                    <a href="wish_list_delete.php?product_id=<?= $row['product_id'] ?>" class="btn btn-sm btn-danger"
+                                    <a href="wish_list_delete.php?product_id=<?= $row['product_id'] ?>"
+                                        class="btn btn-sm btn-danger"
                                         onclick="if(confirm('Are You Sure ?')){}else{return false;}"><i
                                             class="fa fa-times"></i></a>
-                                    
+
                                 </div>
                             </div>
                         </div>
