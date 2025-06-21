@@ -13,7 +13,7 @@ include "sidebar.php";
         <hr>
         <div class="card shadow-lg border-0 rounded-4">
             <div class="card-header bg-dark text-white text-left fw-bold fs-4 rounded-top-4">
-                <div class="row text-center">
+                <div class="row text-center"> 
                     <div class="col-lg-6">| Order Tracking Status |</div>
                     <div class="col-lg-6">| Payment Status |</div>
                 </div>
@@ -33,7 +33,8 @@ include "sidebar.php";
                                     $result = mysqli_query($conn, $query);
                                     ($row = mysqli_fetch_array($result));
                                     ?>
-                                    <option value="<?= $row['order_master_status'] ?>"><?= $row['order_master_status'] ?></option>
+                                    <option value="<?= $row['order_master_status'] ?>">
+                                        <?= $row['order_master_status'] ?></option>
                                     <option value="Processing">Processing</option>
                                     <option value="Ready to Shipping">Ready to Shipping</option>
                                     <option value="Shipped">Shipped</option>
@@ -44,7 +45,8 @@ include "sidebar.php";
                                 <label class="form-label fw-semibold">Update Payment Status <span
                                         class="text-danger">*</span></label>
                                 <select name="payment" id="" class="text-center form-select">
-                                    <option value="<?= $row['order_master_payment_status'] ?>"><?= $row['order_master_payment_status'] ?></option>
+                                    <option value="<?= $row['order_master_payment_status'] ?>">
+                                        <?= $row['order_master_payment_status'] ?></option>
                                     <option value="Paid">Paid</option>
                                 </select>
                             </div>
