@@ -111,7 +111,7 @@ include("./db-connection/db connection.php");
                                     <div class="col-md-6">
                                         <label for="zip" class="form-label">Zip Code</label>
                                         <input type="text" class="form-control" name="zip_code" id="zip" required>
-                                        <input type="hidden" name="date" id="dateVisible">
+                                        <input type="date" name="date" id="dateVisible">
                                     </div>
 
                                     <!-- <div class="col-12">
@@ -326,6 +326,7 @@ include("./db-connection/db connection.php");
                     <div class="card-header bg-white py-3">
                         <h2 class="h5 mb-0">Order Summary</h2>
                     </div>
+
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-2">
                             <span>Subtotal (2 items)</span>
