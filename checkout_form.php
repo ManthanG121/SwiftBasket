@@ -260,13 +260,13 @@ include("./db-connection/db connection.php");
                                                     while ($row = mysqli_fetch_array($result)) {
                                                         $lineTotal = $row['cart_qty'] * $row['product_sell_price'];
                                                         $total += $lineTotal;
-                                                        
+
                                                         ?>
                                                         <tr>
                                                             <td><?= $row["product_name"] ?></td>
                                                             <td><?= $row["product_sell_price"] ?></td>
                                                             <td><?= $row["cart_qty"] ?></td>
-                                                            <td><?=$lineTotal ?></td>
+                                                            <td><?= $lineTotal ?></td>
                                                         </tr>
                                                         <?php
                                                     }
@@ -326,10 +326,22 @@ include("./db-connection/db connection.php");
                     <div class="card-header bg-white py-3">
                         <h2 class="h5 mb-0">Order Summary</h2>
                     </div>
-
+                    <?php
+                    include("./db-connection/db connection.php");
+                    if (isset($_SESSION["customer_id"])) {
+                        $customer = $_SESSION["customer_id"];
+                        $stmt = $conn->prepare("SELECT count(*) as total_count FROM tbl_cart WHERE cart_customer_id = ?");
+                        $stmt->bind_param("i", $customer);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        $test = $result->fetch_assoc();
+                    } else {
+                        $test["total_count"] = 0;
+                    }
+                    ?>
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-2">
-                            <span>Subtotal (2 items)</span>
+                            <span>Subtotal (<?= $test["total_count"] ?> items)</span>
                             <span><?= $total ?></span>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
@@ -380,7 +392,7 @@ include("./db-connection/db connection.php");
 
 <script>
 
-     document.getElementById("dateVisible").value = new Date().toISOString().split('T')[0];
+    document.getElementById("dateVisible").value = new Date().toISOString().split('T')[0];
 
     // Handle payment method selection
     document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
