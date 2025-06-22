@@ -33,6 +33,7 @@
                     <a href="Category-list.php" class="collapsed">
                         <i class="fas fa-chevron-circle-right"></i>
                         <p>Categoryes</p>
+                        <span class="badge badge-secondary">1</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -49,7 +50,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="best_selling_products-list.php" class="collapsed">
-                        <i class="far fa-star"></i>
+                        <i class="far fa-thumbs-up"></i>
                         <p>Best Selling Product</p>
                     </a>
                 </li>
@@ -65,106 +66,19 @@
                         <p>Order List</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="Blogs-list.php" class="collapsed">
                         <i class="fas fa-layer-group"></i>
                         <p>Blogs</p>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#base">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Base</p>
-                        <span class="caret"></span>
-                    </a>
                     <div class="collapse" id="base">
-                        <ul class="nav nav-collapse">
-                            <a href="components/notifications.html">
-                                <span class="sub-item">Notifications</span>
-                            </a>
-                </li>
-                <li>
-                    <a href="components/sweetalert.html">
-                        <span class="sub-item">Sweet Alert</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="components/font-awesome-icons.html">
-                        <span class="sub-item">Font Awesome Icons</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="components/simple-line-icons.html">
-                        <span class="sub-item">Simple Line Icons</span>
-                    </a>
+                        <ul class="nav nav-collapse">              
                 </li>
             </ul>
         </div>
-        </li>
-        <li class="nav-item">
-            <a data-bs-toggle="collapse" href="#tables">
-                <i class="fas fa-table"></i>
-                <p>Tables</p>
-                <span class="caret"></span>
-            </a>
-            <div class="collapse" id="tables">
-                <ul class="nav nav-collapse">
-                    <li>
-                        <a href="tables/tables.html">
-                            <span class="sub-item">Basic Table</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tables/datatables.html">
-                            <span class="sub-item">Datatables</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a data-bs-toggle="collapse" href="#charts">
-                <i class="far fa-chart-bar"></i>
-                <p>Charts</p>
-                <span class="caret"></span>
-            </a>
-            <div class="collapse" id="charts">
-                <ul class="nav nav-collapse">
-                    <li>
-                        <a href="charts/charts.html">
-                            <span class="sub-item">Chart Js</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="charts/sparkline.html">
-                            <span class="sub-item">Sparkline</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a href="widgets.html">
-                <i class="fas fa-desktop"></i>
-                <p>Widgets</p>
-                <span class="badge badge-success">4</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="../../documentation/index.html">
-                <i class="fas fa-file"></i>
-                <p>Documentation</p>
-                <span class="badge badge-secondary">1</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a data-bs-toggle="collapse" href="#submenu">
-                <i class="fas fa-bars"></i>
-                <p>Menu Levels</p>
-            </a>
-        </li>
-        </ul>
     </div>
 </div>
 </div>

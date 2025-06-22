@@ -110,8 +110,8 @@ include "sidebar.php";
                                     </td>
                                     <td>
                                         <a href="best_selling_product-insert.php?product_id=<?= $row["product_id"] ?>"
-                                            class="text-warning fs-5">
-                                            <i class="fa fa-star"></i>
+                                            class="text-dark fs-5">
+                                            <i class="fa fa-thumbs-up"></i>
                                         </a>
                                     </td>
                                     <td>
