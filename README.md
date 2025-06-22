@@ -21,4 +21,10 @@ Contact page img
  Category img 
  ![alt text](image-6.png)
 
- 
+ Best Selling Products img 
+ ![alt text](image-7.png)
+
+Featured Products img 
+![alt text](image-8.png)
+
+
