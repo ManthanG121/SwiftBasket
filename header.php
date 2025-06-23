@@ -204,9 +204,11 @@
               <span class="navbar-text me-3 text-center">
                 <i class="fas fa-phone-alt me-1"></i> +1 234 567 890
               </span>
-              <span class="navbar-text text-center">
-                <i class="fas fa-map-marker-alt me-1"></i> Track Order
-              </span>
+              <a href="track-order.php">
+                <span class="navbar-text text-center">
+                  <i class="fas fa-map-marker-alt me-1"></i> Track Order
+                </span>
+              </a>
             </div>
           </nav>
         </div>

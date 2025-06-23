@@ -49,9 +49,9 @@ $result = mysqli_query($conn, $query);
                 <?php
                 $count = 0;
                 $subtotal = 0;
-                $customer_id = $_GET['order_master_customer_id'];
-                $order_master_id = $_GET['order_master_id'];
-                $query2 = "SELECT * FROM tbl_order_master_child INNER JOIN tbl_product ON tbl_order_master_child.order_child_product_id = tbl_product.product_id WHERE tbl_order_master_child.order_child_customer_id = $customer_id AND tbl_order_master_child.order_child_order_master_id	 = $order_master_id";
+                $customer_id = $_GET['order_child_customer_id'];
+                $order_child_order_master_id = $_GET['order_child_order_master_id'];
+                $query2 = "SELECT * FROM tbl_order_master_child INNER JOIN tbl_product ON tbl_order_master_child.order_child_product_id = tbl_product.product_id WHERE tbl_order_master_child.order_child_customer_id = $customer_id AND tbl_order_master_child.order_child_order_master_id	 = $order_child_order_master_id";
                 $result = mysqli_query($conn, $query2);
                 while ($row = mysqli_fetch_array($result)) {
                     $subtotal += $row["order_child_total_price"];
