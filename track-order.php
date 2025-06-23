@@ -89,7 +89,7 @@ include("./db-connection/db connection.php");
                                         class="btn btn-sm btn-outline-info mb-1" title="View">
                                         <i class="fa fa-eye"></i>View Order
                                     </a>
-                                    <a href="order_delete.php?order_master_customer_id=<?= $row['order_master_customer_id'] ?>&order_master_id=<?= $row['order_master_id'] ?>"
+                                    <a href="cancle_order.php?order_master_customer_id=<?= $row['order_master_customer_id'] ?>&order_master_id=<?= $row['order_master_id'] ?>"
                                         class="btn btn-sm btn-outline-danger mb-1" title="Delete"
                                         onclick="return confirm('Are you sure you want to Cancle this Order?');">
                                         <i class="fa fa-trash"></i>Cancle Order

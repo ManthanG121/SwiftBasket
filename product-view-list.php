@@ -59,6 +59,10 @@ $loop = ($row = mysqli_fetch_array($result));
             </div>
             <div class="text-end">
                 <strong>Total:</strong> <?= $row["order_child_total_price"] ?>
+                <a href="invoice.php?order_master_customer_id=<?= $row['order_master_customer_id'] ?>&order_master_id=<?= $row['order_master_id'] ?>"
+                    class="btn btn-sm btn-outline-info mb-1" title="View">
+                    <i class="fa fa-eye"></i>View Invoice
+                </a>
             </div>
         </div>
 
