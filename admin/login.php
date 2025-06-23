@@ -25,10 +25,10 @@
 				<div class="inputBx">
 					<input type="submit" value="Sign in">
 				</div>
-				<div class="links">
+				<!-- <div class="links">
 					<a href="#">Forget Password</a>
 					<a href="#">Signup</a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</form>
