@@ -4,8 +4,6 @@ include 'header.php';
 if (!isset($_SESSION["login"])) {
     echo "<script> window.location.href='SignUp_LogIn_Form.php'</script>";
 }
-
-
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -49,68 +47,58 @@ if (!isset($_SESSION["login"])) {
     </div>
     <?php unset($_SESSION['delete']); ?>
 <?php endif; ?>
-<div class="container">
-    <div class="text-center mb-5 mt-4">
-        <h1 class="display-5 fw-bold text-uppercase">Your Wishlist</h1>
-        <p class="text-muted">Browse and manage your saved items</p>
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-uppercase text-gradient">Your Wishlist</h1>
+        <p class="text-muted fs-5">The products you love, all in one place.</p>
     </div>
-    <div class="row g-4">
+
+    <div class="row g-5">
         <?php
         $customer = $_SESSION["customer_id"];
-        $query = "SELECT * FROM `tbl_wishlist` INNER JOIN tbl_product ON tbl_product.product_id = tbl_wishlist.wishlist_product_id WHERE tbl_wishlist.wishlist_customer = $customer";
+        $query = "SELECT * FROM tbl_wishlist 
+                  INNER JOIN tbl_product ON tbl_product.product_id = tbl_wishlist.wishlist_product_id 
+                  WHERE tbl_wishlist.wishlist_customer = $customer";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
                 ?>
-                <div class="col-md-6 col-lg-6 col-xl-6">
-                    <div class="card product-card h-100 border-0 shadow-sm hover-top">
-                        <div class="badge bg-success position-absolute top-0 end-0 m-2">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-lg rounded-4 h-100 position-relative animate__animated animate__fadeInUp">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill">
                             <?= $row['product_discount_percentage'] ?>% OFF
-                        </div>
-                        <div class="product-image">
-                            <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
-                                <img src="admin/uplodes/image/<?= ($row['product_img']) ?>" class="card-img-top"
-                                    style="height: 200px; object-fit: contain;">
-                            </a>
-                        </div>
-                        <div class="card-body d-flex flex-column shadow-sm">
-                            <div class="mb-2">
-                                <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
-                                    <h5 class="card-title mb-1 text-center"><?= ($row['product_name']) ?></h5>
-                                </a>
-                                <div class="d-flex text-center mb-2 ms-3">
-                                    <div class="text-warning small me-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <span class="text-muted small">(400 reviews)</span>
-                                </div>
+                        </span>
+                        <a href="single_productview.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
+                            <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top p-4 rounded-top"
+                                style="height: 260px; object-fit: contain;">
+                        </a>
+                        <div class="card-body d-flex flex-column text-center px-4">
+                            <h5 class="fw-bold mb-2 text-dark"><?= $row['product_name'] ?></h5>
+                            <div class="text-warning mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <small class="text-muted ms-1">(400+ reviews)</small>
                             </div>
-                            <div class="mt-auto">
-                                <div class="d-flex align-items-center mb-3 justify-content-center">
-                                    <span class="text-dark fw-bold fs-5 me-2"><?= $row['product_sell_price'] ?>
-                                        Rs</span>
-                                    <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?>
-                                        Rs</span>
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <form action="cart_insert.php" method="post" class="flex-grow-1">
-                                        <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
-                                        <input type="hidden" name="cart_qty" value="1">
-                                        <button type="submit" class="btn btn-success w-100">
-                                            <i class="fas fa-shopping-cart me-2"></i>Add to Cart
-                                        </button>
-                                    </form>
-                                    <a href="wish_list_delete.php?product_id=<?= $row['product_id'] ?>"
-                                        class="btn btn-sm btn-danger"
-                                        onclick="if(confirm('Are You Sure ?')){}else{return false;}"><i
-                                            class="fa fa-times"></i></a>
-
-                                </div>
+                            <div class="mb-3">
+                                <span class="fs-5 text-success fw-bold"><?= $row['product_sell_price'] ?> Rs</span>
+                                <span class="text-muted text-decoration-line-through ms-2"><?= $row['product_mrp'] ?> Rs</span>
+                            </div>
+                            <div class="d-flex gap-2 mt-auto">
+                                <form action="cart_insert.php" method="post" class="w-100">
+                                    <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                    <input type="hidden" name="cart_qty" value="1">
+                                    <button type="submit" class="btn btn-primary w-100 rounded-pill shadow-sm">
+                                        <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                                    </button>
+                                </form>
+                                <a href="wish_list_delete.php?product_id=<?= $row['product_id'] ?>"
+                                    onclick="return confirm('Remove this item from your wishlist?');"
+                                    class="btn btn-outline-danger rounded-pill">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -118,11 +106,12 @@ if (!isset($_SESSION["login"])) {
                 <?php
             }
         } else {
-            echo "<div class='col-12 text-center'><p class='text-muted fs-5'>Your wishlist is empty.</p></div>";
+            echo "<div class='col-12 text-center'><p class='fs-4 text-muted'>Oops! Your wishlist is empty.</p></div>";
         }
         ?>
     </div>
 </div>
+
 <?php
 include 'footer.php';
 ?>
