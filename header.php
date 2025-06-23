@@ -239,12 +239,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="blog.php">Blogs</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-percentage me-1"></i> Offers</a>
-              </li>
+              </li> -->
             </ul>
           </nav>
         </div>
@@ -300,7 +300,7 @@
     </div>
   </header>
 
-  <!-- Mobile Menu Offcanvas -->
+  <!-- Mobile Menu Offcanvas
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
     <div class="offcanvas-header border-bottom">
       <h5 class="offcanvas-title">Menu</h5>
@@ -337,7 +337,7 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 
   <!-- Shopping Cart Offcanvas -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart">

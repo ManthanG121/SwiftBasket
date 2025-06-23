@@ -3,246 +3,252 @@ include "header.php";
 include("./db-connection/db connection.php");
 ?>
 
-<section class="shop-section py-5 bg-light">
-    <div class="container-lg">
-        <!-- Page Header -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h1 class="display-5 fw-bold mb-3">Our Premium Products</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Shop</li>
-                    </ol>
-                </nav>
-            </div>
+<!-- Shop Hero Section -->
+<div class="bg-dark py-5 mb-4" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center; background-size: cover;">
+    <div class="container py-5 text-white text-center">
+        <h1 class="display-4 fw-bold mb-3">Our Premium Collection</h1>
+        <p class="lead mb-4">Discover quality products at unbeatable prices</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#products" class="btn btn-warning btn-lg px-4">Shop Now</a>
+            <a href="#categories" class="btn btn-outline-light btn-lg px-4">Browse Categories</a>
         </div>
+    </div>
+</div>
 
-        <div class="row g-4">
-            <!-- Filters Sidebar -->
-            <div class="col-lg-3">
-                <div class="card shadow-sm border-0 h-100">
-                    <div class="card-body">
-                        <!-- Price Filter -->
-                        <div class="mb-4">
-                            <h5 class="fw-bold mb-3">Price Range</h5>
-                            <div class="list-group list-group-flush">
-                                <label class="list-group-item d-flex justify-content-between align-items-center">
-
-                                    <a href="shop.php">
-                                        <label class="form-check-label" for="priceAll" style="color: black;">All
-                                            Prices</label>
-                                    </a>
-
-                                    <span class="badge bg-secondary rounded-pill">
-                                        <?php
-                                        $query = "SELECT count(*) AS all_count FROM tbl_product";
-                                        $result = mysqli_query($conn, $query);
-                                        $Fquery = mysqli_fetch_array($result);
-                                        ?>
-                                        <?= $Fquery["all_count"] ?>
-                                    </span>
-                                </label>
-                                <label class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="?min_range=0&max_range=100">
-
-                                        <label class="form-check-label" id="price1" style="color: black;">0 Rs - 100
-                                            Rs</label>
-
-                                    </a>
-                                    <span class="badge bg-secondary rounded-pill">
-                                        <?php
-                                        $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 0 AND product_sell_price <= 100";
-                                        $result = mysqli_query($conn, $query);
-                                        $Fquery = mysqli_fetch_array($result);
-                                        ?>
-                                        <?= $Fquery["all_count"] ?>
-                                    </span>
-                                </label>
-                                <label class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="?min_range=101&max_range=300">
-
-                                        <label class="form-check-label" id="price2" style="color: black;">101 Rs - 300
-                                            Rs</label>
-
-                                    </a>
-                                    <span class="badge bg-secondary rounded-pill">
-                                        <?php
-                                        $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 101 AND product_sell_price <= 300";
-                                        $result = mysqli_query($conn, $query);
-                                        $Fquery = mysqli_fetch_array($result);
-                                        ?>
-                                        <?= $Fquery["all_count"] ?>
-                                    </span>
-                                </label>
-                                <label class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="?min_range=301&max_range=500">
-
-                                        <label class="form-check-label" id="price3" style="color: black;">301 Rs - 500
-                                            Rs</label>
-
-                                    </a>
-                                    <span class="badge bg-secondary rounded-pill">
-                                        <?php
-                                        $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 301 AND product_sell_price <= 500";
-                                        $result = mysqli_query($conn, $query);
-                                        $Fquery = mysqli_fetch_array($result);
-                                        ?>
-                                        <?= $Fquery["all_count"] ?>
-                                    </span>
-                                </label>
-                                <label class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="?min_range=501&max_range=700">
-
-                                        <label class="form-check-label" id="price4" style="color: black;">501 Rs - 700
-                                            Rs</label>
-
-                                    </a>
-                                    <span class="badge bg-secondary rounded-pill">
-                                        <?php
-                                        $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 501 AND product_sell_price <= 700";
-                                        $result = mysqli_query($conn, $query);
-                                        $Fquery = mysqli_fetch_array($result);
-                                        ?>
-                                        <?= $Fquery["all_count"] ?>
-                                    </span>
-                                </label>
-                                <label class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="?min_range=701&max_range=1000">
-
-                                        <label class="form-check-label" id="price5" style="color: black;">701 Rs - 1000
-                                            Rs</label>
-
-                                    </a>
-                                    <span class="badge bg-secondary rounded-pill">
-                                        <?php
-                                        $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 701 AND product_sell_price <= 1000";
-                                        $result = mysqli_query($conn, $query);
-                                        $Fquery = mysqli_fetch_array($result);
-                                        ?>
-                                        <?= $Fquery["all_count"] ?>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Categories Filter -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-9">
-                <div class="row g-4">
-                    <?php
-                    if (isset($_GET["min_range"]) && isset($_GET["max_range"])) {
-                        $min_range = (int) $_GET["min_range"];
-                        $max_range = (int) $_GET["max_range"];
-                        $query = "SELECT * FROM `tbl_product` WHERE product_sell_price >= $min_range AND product_sell_price <= $max_range";
-
-                    } else {
-                        $query = "SELECT * FROM `tbl_product`";
-                    }
-                    $result = mysqli_query($conn, $query);
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card product-card h-100 border-0 shadow-sm hover-top">
-                                    <div class="badge bg-success position-absolute top-0 end-0 m-2">
-                                        <?= $row['product_discount_percentage'] ?>% OFF
-                                    </div>
-                                    <div class="product-image">
-                                        <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
-                                            <img src="admin/uplodes/image/<?= ($row['product_img']) ?>" class="card-img-top">
-                                        </a>
-                                    </div>
-                                    <div class="card-body d-flex flex-column shadow-sm">
-                                        <div class="mb-2">
-                                            <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>"
-                                                class="text-decoration-none">
-                                                <h5 class="card-title mb-1 text-center"><?= ($row['product_name']) ?></h5>
-                                            </a>
-                                            <div class="d-flex text-center mb-2 ms-3">
-                                                <div class="text-warning small me-2">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </div>
-                                                <span class="text-muted small">(400 reviews)</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex align-items-center mb-3">
-                                                <span class="text-dark fw-bold fs-5 me-2 ms-5"><?= $row['product_sell_price'] ?>
-                                                    Rs</span>
-                                                <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?>
-                                                    Rs</span>
-                                            </div>
-                                            <div class="d-flex gap-2">
-                                                <form action="cart_insert.php" method="post" class="flex-grow-1">
-                                                    <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
-                                                    <input type="hidden" name="cart_qty" value="1">
-                                                    <button type="submit" class="btn btn-success w-100">
-                                                        <i class="fas fa-shopping-cart me-2"></i>Add to Cart
-                                                    </button>
-                                                </form>
-                                                <form action="wish_list_insert.php" method="post">
-                                                    <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
-                                                    <button type="submit" class="btn btn-outline-secondary">
-                                                        <i class="far fa-heart"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                    } else {
-                        echo '<div class="col-12 text-center py-5">
-                                <div class="alert alert-info">No products found. Please check back later.</div>
-                              </div>';
-                    }
-                    ?>
-                </div>
-
-
+<!-- Main Shop Content -->
+<div class="container py-5" id="products">
+    <!-- Page Header with Breadcrumb -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none"><i class="fas fa-home me-1"></i> Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                </ol>
+            </nav>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="h3 fw-bold mb-0">All Products</h2>
+                
             </div>
         </div>
     </div>
-</section>
 
+    <div class="row g-4">
+        <!-- Filters Sidebar -->
+        <div class="col-lg-3" id="categories">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="fw-bold mb-0"><i class="fas fa-filter me-2"></i>Filters</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Price Filter -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold mb-3">Price Range</h6>
+                        <div class="list-group list-group-flush">
+                            <a href="shop.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                All Prices
+                                <span class="badge bg-secondary rounded-pill">
+                                    <?php
+                                    $query = "SELECT count(*) AS all_count FROM tbl_product";
+                                    $result = mysqli_query($conn, $query);
+                                    $Fquery = mysqli_fetch_array($result);
+                                    echo $Fquery["all_count"];
+                                    ?>
+                                </span>
+                            </a>
+                            <a href="?min_range=0&max_range=100" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                ₹0 - ₹100
+                                <span class="badge bg-secondary rounded-pill">
+                                    <?php
+                                    $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 0 AND product_sell_price <= 100";
+                                    $result = mysqli_query($conn, $query);
+                                    $Fquery = mysqli_fetch_array($result);
+                                    echo $Fquery["all_count"];
+                                    ?>
+                                </span>
+                            </a>
+                            <a href="?min_range=101&max_range=300" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                ₹101 - ₹300
+                                <span class="badge bg-secondary rounded-pill">
+                                    <?php
+                                    $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 101 AND product_sell_price <= 300";
+                                    $result = mysqli_query($conn, $query);
+                                    $Fquery = mysqli_fetch_array($result);
+                                    echo $Fquery["all_count"];
+                                    ?>
+                                </span>
+                            </a>
+                            <a href="?min_range=301&max_range=500" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                ₹301 - ₹500
+                                <span class="badge bg-secondary rounded-pill">
+                                    <?php
+                                    $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 301 AND product_sell_price <= 500";
+                                    $result = mysqli_query($conn, $query);
+                                    $Fquery = mysqli_fetch_array($result);
+                                    echo $Fquery["all_count"];
+                                    ?>
+                                </span>
+                            </a>
+                            <a href="?min_range=501&max_range=700" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                ₹501 - ₹700
+                                <span class="badge bg-secondary rounded-pill">
+                                    <?php
+                                    $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 501 AND product_sell_price <= 700";
+                                    $result = mysqli_query($conn, $query);
+                                    $Fquery = mysqli_fetch_array($result);
+                                    echo $Fquery["all_count"];
+                                    ?>
+                                </span>
+                            </a>
+                            <a href="?min_range=701&max_range=1000" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                ₹701 - ₹1000
+                                <span class="badge bg-secondary rounded-pill">
+                                    <?php
+                                    $query = "SELECT count(*) AS all_count FROM tbl_product WHERE product_sell_price > 701 AND product_sell_price <= 1000";
+                                    $result = mysqli_query($conn, $query);
+                                    $Fquery = mysqli_fetch_array($result);
+                                    echo $Fquery["all_count"];
+                                    ?>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="col-lg-9">
+            <div class="row g-4">
+                <?php
+                // Build the query based on filters
+                $query = "SELECT * FROM `tbl_product`";
+                
+                if (isset($_GET["min_range"]) && isset($_GET["max_range"])) {
+                    $min_range = (int)$_GET["min_range"];
+                    $max_range = (int)$_GET["max_range"];
+                    $query .= " WHERE product_sell_price >= $min_range AND product_sell_price <= $max_range";
+                }
+                
+                $result = mysqli_query($conn, $query);
+                
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        $discount = $row['product_mrp'] - $row['product_sell_price'];
+                        ?>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card product-card h-100 border-0 shadow-sm overflow-hidden">
+                                <div class="position-relative">
+                                    <!-- Discount Badge -->
+                                    <?php if ($row['product_discount_percentage'] > 0): ?>
+                                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+                                            <?= $row['product_discount_percentage'] ?>% OFF
+                                        </span>
+                                    <?php endif; ?>
+                                    
+                                    <!-- Product Image -->
+                                    <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
+                                        <img src="admin/uplodes/image/<?= $row['product_img'] ?>" 
+                                             class="card-img-top p-3" 
+                                             style="height: 220px; object-fit: contain; background-color: #f8f9fa;"
+                                             alt="<?= $row['product_name'] ?>">
+                                    </a>
+                                    
+                                    <!-- Quick Actions -->
+                                    <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2">
+                                        <form action="wish_list_insert.php" method="post">
+                                            <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                        <input type="hidden" name="cart_qty" value="1">
+                                        <button type="submit" class="btn btn-sm btn-light rounded-circle shadow-sm" 
+                                                data-bs-toggle="tooltip" title="Add to wishlist">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        </form>
+                                       
+                                    </div>
+                                </div>
+                                
+                                <div class="card-body pt-0 text-center">
+                                    <!-- Product Title -->
+                                    <h5 class="card-title mb-1">
+                                        <a href="single_productview.php?product_id=<?= $row['product_id'] ?>" 
+                                           class="text-decoration-none text-dark">
+                                            <?= $row['product_name'] ?>
+                                        </a>
+                                    </h5>
+                                    
+                                    <!-- Rating -->
+                                    <div class="mb-2">
+                                        <div class="text-warning small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="text-muted ms-1 small">(<?= rand(50, 500) ?> reviews)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Price -->
+                                    <div class="mb-3">
+                                        <span class="text-success fw-bold fs-5">₹<?= $row['product_sell_price'] ?></span>
+                                        <?php if ($row['product_mrp'] > $row['product_sell_price']): ?>
+                                            <span class="text-muted text-decoration-line-through ms-2">₹<?= $row['product_mrp'] ?></span>
+                                            <span class="d-block small text-success">Save ₹<?= $discount ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                    
+                                    <!-- Add to Cart Button -->
+                                    <form action="cart_insert.php" method="post" class="d-grid">
+                                        <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                                        <input type="hidden" name="cart_qty" value="1">
+                                        <button type="submit" class="btn btn-primary rounded-pill">
+                                            <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                } else {
+                    echo '<div class="col-12 text-center py-5">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i> No products found matching your criteria.
+                            </div>
+                            <a href="shop.php" class="btn btn-primary">Clear Filters</a>
+                          </div>';
+                }
+                ?>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
 <?php include "footer.php"; ?>
 
 <style>
-    .hover-top {
+    .product-card {
         transition: all 0.3s ease;
     }
-
-    .hover-top:hover {
+    
+    .product-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-
-    .product-image {
-        height: 250px;
-        width: 250px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
+    
+    .breadcrumb {
+        background-color: transparent;
+        padding: 0;
     }
-
-    .product-image img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
+    
+    .quick-view {
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
-
-    .shop-section {
-        background-color: rgba(248, 249, 250, 0.8);
+    
+    .product-card:hover .quick-view {
+        opacity: 1;
     }
 </style>
