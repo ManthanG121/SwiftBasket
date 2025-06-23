@@ -130,12 +130,22 @@ include("./db-connection/db connection.php");
             <div class="row g-4">
                 <?php
                 $product_name = isset($_GET["product_name"]) ? $_GET["product_name"] : "";
-                $query = "SELECT * FROM `tbl_product` WHERE `product_name` LIKE '%$product_name%'";
+                $conditions = [];
+
+                if (!empty($product_name)) {
+                    $safe_product_name = mysqli_real_escape_string($conn, $product_name);
+                    $conditions[] = "`product_name` LIKE '%$safe_product_name%'";
+                }
 
                 if (isset($_GET["min_range"]) && isset($_GET["max_range"])) {
                     $min_range = (int) $_GET["min_range"];
                     $max_range = (int) $_GET["max_range"];
-                    $query .= " WHERE product_sell_price >= $min_range AND product_sell_price <= $max_range";
+                    $conditions[] = "product_sell_price >= $min_range AND product_sell_price <= $max_range";
+                }
+
+                $query = "SELECT * FROM `tbl_product`";
+                if (!empty($conditions)) {
+                    $query .= " WHERE " . implode(" AND ", $conditions);
                 }
 
                 $result = mysqli_query($conn, $query);
