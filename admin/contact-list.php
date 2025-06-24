@@ -77,7 +77,8 @@ include "sidebar.php";
                         <tbody>
                             <?php
                             $count = 0;
-                            $query = "SELECT * FROM `tbl_contact`";
+                            $customer_name = isset($_POST["product_name"]) ? $_POST["product_name"] : "";
+                            $query = "SELECT * FROM `tbl_contact` WHERE `contact_name` LIKE '%$customer_name%'";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>

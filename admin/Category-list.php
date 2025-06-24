@@ -34,7 +34,8 @@ include "sidebar.php";
                         <tbody>
                             <?php
                             $count = 0;
-                            $query = "SELECT * FROM `tbl_category`";
+                            $category_name = isset($_POST["product_name"]) ? $_POST["product_name"] : "";
+                            $query = "SELECT * FROM `tbl_category` WHERE `category_name` LIKE '%$category_name%'";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>

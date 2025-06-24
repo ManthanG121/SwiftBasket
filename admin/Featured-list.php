@@ -60,7 +60,8 @@ include "sidebar.php";
                         <tbody>
                             <?php
                             $count = 0;
-                            $query = "SELECT * FROM `tbl_feature` INNER JOIN tbl_product ON tbl_product.product_id = tbl_feature.product_id";
+                            $featured_product = isset($_POST["product_name"]) ? $_POST["product_name"] : "";
+                            $query = "SELECT * FROM `tbl_feature` INNER JOIN tbl_product ON tbl_product.product_id = tbl_feature.product_id WHERE `product_name` LIKE '%$featured_product%'";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>

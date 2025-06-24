@@ -1,11 +1,12 @@
-<?php 
-  session_start();
+<?php
+session_start();
 if (!isset($_SESSION["login"])) {
   echo "<script>window.location.href='login.php'</script>";
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Admin-SWIFTBASKET</title>
@@ -82,29 +83,36 @@ if (!isset($_SESSION["login"])) {
           <div class="container-fluid">
             <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
               <div class="input-group">
-                <div class="input-group-prepend">
-                  <button type="submit" class="btn btn-search pe-1">
-                    <i class="fa fa-search search-icon"></i>
-                  </button>
-                </div>
-                <input type="text" placeholder="Search ..." class="form-control" />
+                <form class="navbar-left navbar-form nav-search" method="POST" action="">
+                  <div class="input-group">
+                    <input type="search" placeholder="Search ..." class="form-control search-input" name="product_name"
+                      value="<?= isset($_POST["product_name"]) ? $_POST["product_name"] : "" ?>" />
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </form>
               </div>
             </nav>
 
             <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
               <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none ms-4">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                  aria-expanded="false" aria-haspopup="true">
-                  <i class="fa fa-search"></i>
-                </a>
                 <ul class="dropdown-menu dropdown-search animated fadeIn">
-                  <form class="navbar-left navbar-form nav-search">
-                    <div class="input-group">
-                      <input type="text" placeholder="Search ..." class="form-control" />
-                    </div>
-                  </form>
+                  <li>
+                    <form class="navbar-left navbar-form nav-search" method="GET" action="">
+                      <div class="input-group">
+                        <input type="search" placeholder="Search ..." class="form-control search-input"
+                          name="product_name"
+                          value="<?= isset($_GET["product_name"]) ? $_GET["product_name"] : "" ?>" />
+                        <button type="submit" class="btn btn-primary">
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </li>
                 </ul>
               </li>
+
               <!-- <li class="nav-item topbar-icon dropdown hidden-caret">
                 <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -301,7 +309,7 @@ if (!isset($_SESSION["login"])) {
                 </div>
               </li> -->
 
-             
+
               <!-- <li class="nav-item topbar-user dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
                   <div class="avatar-sm">
@@ -339,9 +347,9 @@ if (!isset($_SESSION["login"])) {
                   </div>
                 </ul>
               </li> -->
-            <li class="nav-item topbar-user dropdown hidden-caret">
-              <a href="admin_logout.php"><button type="button" class="btn btn-danger btn-lg">Log-out</button></a>
-            </li>
+              <li class="nav-item topbar-user dropdown hidden-caret">
+                <a href="admin_logout.php"><button type="button" class="btn btn-danger btn-lg">Log-out</button></a>
+              </li>
             </ul>
           </div>
         </nav>

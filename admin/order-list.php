@@ -62,7 +62,8 @@ include("../db-connection/db connection.php");
                         <tbody>
                             <?php
                             $count = 0;
-                            $query = "SELECT * FROM tbl_order_master";
+                            $customer_name = isset($_POST["product_name"]) ? $_POST["product_name"] : "";
+                            $query = "SELECT * FROM tbl_order_master WHERE `first_name` LIKE '%$customer_name%'";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>
