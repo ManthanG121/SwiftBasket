@@ -363,7 +363,7 @@ $order = mysqli_fetch_assoc($order_result);
                     <div class="summary-row">
                         <span>Subtotal</span>
                         <span>₹<?= number_format($subtotal, 2) ?></span>
-                    </div>
+                    </div> 
                     <div class="summary-row">
                         <span>Shipping</span>
                         <span class="text-success"><b>Free</b></span>
