@@ -189,11 +189,12 @@
         <!-- Search Bar -->
         <div class="col-12 col-lg-5 my-3 my-lg-0">
           <div class="search-bar d-flex align-items-center p-2">
-            <input type="text" class="search-input flex-grow-1 border-0 bg-transparent px-3"
-              placeholder="Search for products...">
-            <button class="search-btn px-3">
-              <i class="fas fa-search"></i>
-            </button>
+            <form>
+              <input type="text" class="search-input flex-grow-1 border-0 bg-transparent px-3"
+                placeholder="Search for products..."
+                value="<?= isset($_GET["product_name"]) ? $_GET["product_name"] : "" ?>" name="product_name"
+                type="search">
+            </form>
           </div>
         </div>
 
@@ -212,7 +213,6 @@
             </div>
           </nav>
         </div>
-
 
 
       </div>

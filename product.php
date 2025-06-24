@@ -16,16 +16,23 @@ include("./db-connection/db connection.php");
 
         <div class="row g-4">
             <?php
-            $categoryid = $_GET["category_id"];
-            $query = "SELECT * FROM `tbl_product` WHERE `category` = $categoryid";
-            $result = mysqli_query($conn, $query);
+            $product_name = isset($_GET["product_name"]) ? $_GET["product_name"] : "";
+            $categoryid = isset($_GET["category_id"]) ? $_GET["category_id"] : "";
+            // $query = "SELECT * FROM `tbl_product` WHERE `category` = $categoryid";
+            if ($categoryid) {
+                $query = "SELECT * FROM `tbl_product` WHERE `category` = $categoryid AND `product_name` LIKE '%$product_name%'";
+            }else{
 
+                $query = "SELECT * FROM `tbl_product` WHERE `product_name` LIKE '%$product_name%'";
+            }
+            $result = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($result)) {
                 ?>
                 <div class="col-md-6 col-lg-3">
                     <div class="card product-card h-100 border-0 shadow-sm hover-top">
                         <div class="badge bg-success position-absolute top-0 end-0 m-2">
-                            <?= $row['product_discount_percentage'] ?>% OFF</div>
+                            <?= $row['product_discount_percentage'] ?>% OFF
+                        </div>
                         <div class="product-image">
                             <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
                                 <img src="admin/uplodes/image/<?= ($row['product_img']) ?>" class="card-img-top">

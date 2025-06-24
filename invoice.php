@@ -75,10 +75,10 @@ $result = mysqli_query($conn, $query);
                     <td colspan="4" style="text-align: right; padding: 10px; font-weight: bold;">Subtotal</td>
                     <td style="text-align: right; padding: 10px;"><?= $subtotal ?> ₹</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td colspan="4" style="text-align: right; padding: 10px; font-weight: bold;">Shipping</td>
                     <td style="text-align: right; padding: 10px;">10 ₹</td>
-                </tr>
+                </tr> -->
                 <tr>
                     <td colspan="4" style="text-align: right; padding: 10px; font-weight: bold;">Total</td>
                     <td style="text-align: right; padding: 10px; color: green; font-weight: bold;"><?= $total ?> ₹</td>
