@@ -37,7 +37,13 @@ include("../db-connection/db connection.php");
 <?php endif; ?>
 <div class="container">
     <div class="page-inner">
-       
+        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+            <div>
+                <h3 class="fw-bold mb-3 pt-4">Order List</h3>
+            </div>
+            
+        </div>
+         <hr>
         <div class="card shadow-lg border-0 rounded-4">
             <div class="card-header bg-info text-white text-left fw-bold fs-4 rounded-top-4">
                 Order List
