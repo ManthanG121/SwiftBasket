@@ -20,6 +20,52 @@
         </div>
         <!-- End Logo Header -->
     </div>
+    <?php
+    include("../db-connection/db connection.php");
+    $select = "SELECT count(*) as category_count FROM tbl_category";
+    $findingtotal = mysqli_query($conn, $select);
+    $category_count = mysqli_fetch_array($findingtotal);
+    ?>
+    <!-- category_count end -->
+    <?php
+    include("../db-connection/db connection.php");
+    $select = "SELECT count(*) as product_count FROM tbl_product";
+    $findingtotal = mysqli_query($conn, $select);
+    $product_count = mysqli_fetch_array($findingtotal);
+    ?>
+    <!-- product_count end -->
+
+    <?php
+    include("../db-connection/db connection.php");
+    $select = "SELECT count(*) as feature_count FROM tbl_feature";
+    $findingtotal = mysqli_query($conn, $select);
+    $feature_count = mysqli_fetch_array($findingtotal);
+    ?>
+    <!-- feature_count end -->
+
+    <?php
+    include("../db-connection/db connection.php");
+    $select = "SELECT count(*) as best_selling_count FROM tbl_best_selling_product";
+    $findingtotal = mysqli_query($conn, $select);
+    $best_selling_count = mysqli_fetch_array($findingtotal);
+    ?>
+    <!-- best_selling_count end -->
+
+    <?php
+    include("../db-connection/db connection.php");
+    $select = "SELECT count(*) as contact_count FROM tbl_contact";
+    $findingtotal = mysqli_query($conn, $select);
+    $contact_count = mysqli_fetch_array($findingtotal);
+    ?>
+    <!-- best_selling_count end -->
+
+    <?php
+    include("../db-connection/db connection.php");
+    $select = "SELECT count(*) as order_count FROM tbl_order_master";
+    $findingtotal = mysqli_query($conn, $select);
+    $order_count = mysqli_fetch_array($findingtotal);
+    ?>
+    <!-- order_count end -->
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
@@ -33,37 +79,43 @@
                     <a href="Category-list.php" class="collapsed">
                         <i class="fas fa-chevron-circle-right"></i>
                         <p>Categoryes</p>
-                        <span class="badge badge-secondary">1</span>
+                        <span class="badge badge-secondary rounded-pill"><?= $category_count["category_count"] ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="product-list.php" class="collapsed">
                         <i class="far fa-arrow-alt-circle-right"></i>
                         <p>Product</p>
+                        <span class="badge badge-danger rounded-pill"><?= $product_count["product_count"] ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="Featured-list.php" class="collapsed">
                         <i class="far fa-star"></i>
                         <p>Featured Product</p>
+                        <span class="badge badge-secondary rounded-pill"><?= $feature_count["feature_count"] ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="best_selling_products-list.php" class="collapsed">
                         <i class="far fa-thumbs-up"></i>
                         <p>Best Selling Product</p>
+                        <span
+                            class="badge badge-danger rounded-pill"><?= $best_selling_count["best_selling_count"] ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="contact-list.php" class="collapsed">
                         <i class="fas fa-phone"></i>
                         <p>Contact Us</p>
+                        <span class="badge badge-secondary rounded-pill"><?= $contact_count["contact_count"] ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="order-list.php" class="collapsed">
                         <i class="fas fa-box-open"></i>
                         <p>Order List</p>
+                        <span class="badge badge-danger rounded-pill"><?= $order_count["order_count"] ?></span>
                     </a>
                 </li>
                 <!-- <li class="nav-item">
@@ -75,7 +127,7 @@
 
                 <li class="nav-item">
                     <div class="collapse" id="base">
-                        <ul class="nav nav-collapse">              
+                        <ul class="nav nav-collapse">
                 </li>
             </ul>
         </div>
