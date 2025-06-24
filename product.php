@@ -19,9 +19,12 @@ include("./db-connection/db connection.php");
             $product_name = isset($_GET["product_name"]) ? $_GET["product_name"] : "";
             $categoryid = isset($_GET["category_id"]) ? $_GET["category_id"] : "";
             // $query = "SELECT * FROM `tbl_product` WHERE `category` = $categoryid";
-            if ($categoryid !== "") {
+            if ($categoryid) {
+                $query = "SELECT * FROM `tbl_product` WHERE `category` = $categoryid AND `product_name` LIKE '%$product_name%'";
+            }else{
+
+                $query = "SELECT * FROM `tbl_product` WHERE `product_name` LIKE '%$product_name%'";
             }
-            $query = "SELECT * FROM `tbl_product` WHERE `product_name` LIKE '%$product_name%' AND `category` = $categoryid";
             $result = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($result)) {
                 ?>
