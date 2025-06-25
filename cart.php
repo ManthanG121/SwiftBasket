@@ -29,15 +29,16 @@ include("./db-connection/db connection.php");
         border: none;
         border-radius: 5px;
         background-color: #4CAF50;
-        /* green */
+        
         color: white;
     }
 
-    .cross {
+    .toggle-btn.cross {
         background-color: #f44336;
-        /* red */
+        
     }
 </style>
+
 <?php if (isset($_SESSION['delete'])): ?>
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;text-align: center;">
         <div class="toast text-center align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive"
@@ -74,7 +75,6 @@ include("./db-connection/db connection.php");
 <?php endif; ?>
 <div class="container py-5">
     <div class="row g-4">
-        <!-- Cart Table -->
         <div class="col-lg-8">
             <div class="card shadow-sm">
                 <div class="card-body">
@@ -83,7 +83,7 @@ include("./db-connection/db connection.php");
                         <table class="table table-hover text-center align-middle">
                             <thead class="table-dark">
                                 <tr>
-                                    <th>Image</th>
+                                    <th>Choose</th>
                                     <th>Image</th>
                                     <th>Product Name</th>
                                     <th>Price</th>
@@ -103,8 +103,15 @@ include("./db-connection/db connection.php");
                                         <td>
                                             <form method="post" action="updateCartStatus.php">
                                                 <input type="hidden" name="cart_id" value="<?= $row['cart_id'] ?>">
-                                                <button type="submit" id="statusButton" class="toggle-btn">✓</button>
+                                                <input type="hidden" name="cart_status"
+                                                    value="<?= $row['cart_status'] == 'active' ? 0 : 'active' ?>">
+
+                                                <button type="submit"
+                                                    class="toggle-btn <?= $row['cart_status'] == 'active' ? '' : 'cross' ?>">
+                                                    <?= $row['cart_status'] == 'active' ? '✓' : '✕' ?>
+                                                </button>
                                             </form>
+
                                         </td>
                                         <td>
                                             <img style="width: 60px; height: 60px; object-fit: cover;"
@@ -158,20 +165,25 @@ include("./db-connection/db connection.php");
                     <h4 class="card-title fw-bold mb-3">Cart Summary</h4>
                     <ul class="list-group list-group-flush mb-3">
                         <?php
-                        $subtotal = 0;
-                        mysqli_data_seek($result, 0);
+
+                        $total = 0;
+                        $customer_id = $_SESSION["customer_id"];
+                        $query = "SELECT * FROM tbl_cart INNER JOIN tbl_product ON tbl_product.product_id = tbl_cart.cart_product_id WHERE tbl_cart.cart_customer_id = $customer_id AND tbl_cart.cart_status = 'active'";
+                        $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
-                            $subtotal += $row["cart_qty"] * $row["product_sell_price"];
+
+                            $lineTotal = $row['cart_qty'] * $row['product_sell_price'];
+                            $total += $lineTotal;
                         }
 
                         ?>
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Subtotal</span>
-                            <strong>₹ <?= $subtotal ?></strong>
+                            <strong>₹ <?= $total ?></strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total</span>
-                            <strong>₹<?= $subtotal ?></strong>
+                            <strong>₹<?= $total ?></strong>
                         </li>
                     </ul>
                     <a href="checkout_form.php"><button class="btn btn-primary w-100 rounded-pill fw-semibold">
@@ -182,22 +194,7 @@ include("./db-connection/db connection.php");
         </div>
     </div>
 </div>
-<script>
-    const button = document.getElementById('statusButton');
-    let isChecked = true;
 
-    button.addEventListener('click', () => {
-        isChecked = !isChecked;
-       
-        if (isChecked) {
-            button.textContent = '✓';
-            button.classList.remove('cross');
-        } else {
-            button.textContent = '✕';
-            button.classList.add('cross');
-        }
-    });
-</script>
 <?php
 include "footer.php";
 ?>
