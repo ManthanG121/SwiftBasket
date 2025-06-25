@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_array($res)) {
 }
 
 $customer = $_SESSION["customer_id"];
-$sel = "SELECT * FROM `tbl_cart` WHERE tbl_cart.cart_customer_id = $customer";
+$sel = "SELECT * FROM `tbl_cart` WHERE tbl_cart.cart_customer_id = $customer AND tbl_cart.cart_status = 'active'";
 
 $res = mysqli_query($conn, $sel);
 
@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_array($res)) {
 }
 
 $customer = $_SESSION["customer_id"];
-$sel = "DELETE  FROM `tbl_cart` WHERE tbl_cart.cart_customer_id = $customer";
+$sel = "DELETE  FROM `tbl_cart` WHERE tbl_cart.cart_customer_id = $customer AND tbl_cart.cart_status = 'active'";
 $result = mysqli_query($conn, $sel);
 if ($result) {
 } else {
