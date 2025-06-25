@@ -2,8 +2,8 @@
 
 include "header.php";
 if (!isset($_SESSION["login"])) {
-  echo "<script> window.location.href='SignUp_LogIn_Form.php'</script>";
-  exit;
+    echo "<script> window.location.href='SignUp_LogIn_Form.php'</script>";
+    exit;
 }
 
 include("./db-connection/db connection.php");
@@ -21,6 +21,23 @@ include("./db-connection/db connection.php");
         }
     });
 </script>
+<style>
+    .toggle-btn {
+        font-size: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        /* green */
+        color: white;
+    }
+
+    .cross {
+        background-color: #f44336;
+        /* red */
+    }
+</style>
 <?php if (isset($_SESSION['delete'])): ?>
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055;text-align: center;">
         <div class="toast text-center align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive"
@@ -67,6 +84,7 @@ include("./db-connection/db connection.php");
                             <thead class="table-dark">
                                 <tr>
                                     <th>Image</th>
+                                    <th>Image</th>
                                     <th>Product Name</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -83,11 +101,15 @@ include("./db-connection/db connection.php");
                                     ?>
                                     <tr>
                                         <td>
+                                            <form method="post" action="updateCartStatus.php">
+                                                <input type="hidden" name="cart_id" value="<?= $row['cart_id'] ?>">
+                                                <button type="submit" id="statusButton" class="toggle-btn">✓</button>
+                                            </form>
+                                        </td>
+                                        <td>
                                             <img style="width: 60px; height: 60px; object-fit: cover;"
                                                 class="img-fluid rounded"
                                                 src="admin/uplodes/image/<?= $row["product_img"] ?>" alt="">
-
-
                                         </td>
                                         <td class="fw-semibold"><?= $row["product_name"] ?></td>
                                         <td>₹<?= $row["product_sell_price"] ?></td>
@@ -153,13 +175,29 @@ include("./db-connection/db connection.php");
                         </li>
                     </ul>
                     <a href="checkout_form.php"><button class="btn btn-primary w-100 rounded-pill fw-semibold">
-                        Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
-                    </button></a>
+                            Proceed to Checkout <i class="bi bi-arrow-right ms-1"></i>
+                        </button></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    const button = document.getElementById('statusButton');
+    let isChecked = true;
+
+    button.addEventListener('click', () => {
+        isChecked = !isChecked;
+       
+        if (isChecked) {
+            button.textContent = '✓';
+            button.classList.remove('cross');
+        } else {
+            button.textContent = '✕';
+            button.classList.add('cross');
+        }
+    });
+</script>
 <?php
 include "footer.php";
 ?>

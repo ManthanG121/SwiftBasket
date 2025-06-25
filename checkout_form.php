@@ -323,6 +323,7 @@ include("./db-connection/db connection.php");
                         $total += $lineTotal;
                     }
                     ?>
+                    <input type="hidden" value="<?= $row["cart_id"] ?>" name="cart_id">
                     <div class="card-header bg-white py-3">
                         <h2 class="h5 mb-0">Order Summary</h2>
                     </div>
