@@ -1,11 +1,21 @@
 <?php
 include "header.php";
 include("./db-connection/db connection.php");
-$product_id = $_GET["product_id"];
-$query = "SELECT * FROM `tbl_product` WHERE `product_id` = $product_id";
+$product_id = isset($_GET["product_id"]) ? (int)$_GET["product_id"] : 0;
+
+mysqli_query($conn, "UPDATE tbl_product SET view_count = view_count + 1 WHERE product_id = $product_id");
+$query = "SELECT * FROM tbl_product WHERE product_id = $product_id";
 $result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+} else {
+    echo "Product not found.";
+    exit;
+}
 ?>
+
+
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 <section class="py-5 bg-light">
