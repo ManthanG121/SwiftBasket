@@ -35,10 +35,10 @@ include "sidebar.php";
                                     ?>
                                     <option value="<?= $row['order_master_status'] ?>">
                                         <?= $row['order_master_status'] ?></option>
-                                    <option value="Processing">Processing</option>
-                                    <option value="Ready to Shipping">Ready to Shipping</option>
-                                    <option value="Shipped">Shipped</option>
-                                    <option value="Deleverd">Deleverd</option>
+                                    <option value="Processing">Ordered</option>
+                                    <option value="Ready to Shipping">Shipped</option>
+                                    <option value="Shipped">Out for Delivery</option>
+                                    <option value="Deleverd">Delivered</option>
                                 </select>
                             </div>
                             <div class="col-lg-6 text-center">

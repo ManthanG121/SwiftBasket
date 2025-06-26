@@ -239,8 +239,6 @@ include("./db-connection/db connection.php");
                 }
                 ?>
             </div>
-
-
         </div>
     </div>
 </div>

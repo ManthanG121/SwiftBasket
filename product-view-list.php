@@ -290,8 +290,8 @@ $order = mysqli_fetch_assoc($order_result);
                         </a>
                     </div>
 
-                    <div class="card-body">
-                        <h6 class="fw-bold mb-3">Order Items</h6>
+                    <div class="card-body p-2">
+                        <h6 class="fw-bold mb-3 pt-3">Order Items</h6>
                         <div class="table-responsive">
                             <table class="table product-table">
                                 <thead>
@@ -335,8 +335,36 @@ $order = mysqli_fetch_assoc($order_result);
                             </table>
                         </div>
 
+                        <div class="mt-4">
+                            <h6 class="fw-bold mb-3">Order Progress</h6>
+                            <?php
+                            $query = "SELECT * FROM `tbl_order_master`";
+                            $result = mysqli_query($conn, $query);
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <div class="progress-steps">
+                                    <div class="progress-bar" style="width: 50%;"></div>
+                                    <div class="step <?= $row["order_master_status"] == 'Processing' ? 'active' : '' ?>">
+                                        <div class="step-circle">1</div>
+                                        <div class="step-label">Ordered</div>
+                                    </div>
+                                    <div class="step <?= $row["order_master_status"] == 'Ready to Shipping' ? 'active' : '' ?>">
+                                        <div class="step-circle">2</div>
+                                        <div class="step-label">Shipped</div>
+                                    </div>
+                                    <div class="step <?= $row["order_master_status"] == 'Shipped' ? 'active' : '' ?>">
+                                        <div class="step-circle">3</div>
+                                        <div class="step-label">Out for Delivery</div>
+                                    </div>
+                                    <div class="step <?= $row["order_master_status"] == 'Deleverd' ? 'active' : '' ?>">
+                                        <div class="step-circle">4</div>
+                                        <div class="step-label">Delivered</div>
+                                    </div>
+                                </div>
+                                <?php
+                            } ?>
+                        </div>
 
-                        
                     </div>
                 </div>
             </div>
@@ -364,7 +392,7 @@ $order = mysqli_fetch_assoc($order_result);
                     </div>
                 </div>
 
-                
+
                 <div class="summary-card">
                     <h5 class="fw-bold mb-3">Shipping Information</h5>
                     <div class="mb-3">
