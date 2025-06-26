@@ -318,7 +318,7 @@ $order = mysqli_fetch_assoc($order_result);
                                                 <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="product-img me-3" alt="<?= $row['product_name'] ?>">
                                                 <div>
                                                     <h6 class="mb-1"><?= $row['product_name'] ?></h6>
-                                                    <small class="text-muted">SKU: <?= $row['product_id'] ?></small>
+                                                    <small class="text-muted">P - <?= $row['product_id'] ?></small>
                                                 </div>
                                             </div>
                                         </td>
