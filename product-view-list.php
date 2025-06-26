@@ -338,25 +338,42 @@ $order = mysqli_fetch_assoc($order_result);
                         <div class="mt-4">
                             <h6 class="fw-bold mb-3">Order Progress</h6>
                             <?php
+                            
                             $query = "SELECT * FROM `tbl_order_master`";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>
                                 <div class="progress-steps">
-                                    <div class="progress-bar" style="width: 50%;"></div>
-                                    <div class="step <?= $row["order_master_status"] == 'Processing' ? 'active' : '' ?>">
+                                    <?php
+                                    $percentage = 0;
+                                    if($row["order_master_status"] == "Processing"){
+                                        $percentage = 25;
+                                    }else if($row["order_master_status"] == "Ready to Shipping"){
+                                        $percentage = 50;
+                                        
+                                    }else if($row["order_master_status"] == "Shipped"){
+                                        $percentage = 75;
+                                        
+                                    }else if($row["order_master_status"] == "Deleverd"){
+                                        $percentage = 100;
+                                        
+                                    }
+                                    ?>
+                                    <div class="progress-bar" style="width: <?= $percentage  ?>%;"></div>
+                                     
+                                    <div class="step <?= $percentage >= 25 ? "active" : ""    ?>">
                                         <div class="step-circle">1</div>
                                         <div class="step-label">Ordered</div>
                                     </div>
-                                    <div class="step <?= $row["order_master_status"] == 'Ready to Shipping' ? 'active' : '' ?>">
+                                    <div class="step <?= $percentage >= 50 ? "active" : ""  ?>">
                                         <div class="step-circle">2</div>
                                         <div class="step-label">Shipped</div>
                                     </div>
-                                    <div class="step <?= $row["order_master_status"] == 'Shipped' ? 'active' : '' ?>">
+                                    <div class="step <?= $percentage >= 75 ? "active" : "" ?>">
                                         <div class="step-circle">3</div>
                                         <div class="step-label">Out for Delivery</div>
                                     </div>
-                                    <div class="step <?= $row["order_master_status"] == 'Deleverd' ? 'active' : '' ?>">
+                                    <div class="step <?= $percentage >= 100 ? "active" : "" ?>">
                                         <div class="step-circle">4</div>
                                         <div class="step-label">Delivered</div>
                                     </div>
