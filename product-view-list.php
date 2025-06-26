@@ -338,9 +338,10 @@ $order = mysqli_fetch_assoc($order_result);
                         <div class="mt-4">
                             <h6 class="fw-bold mb-3">Order Progress</h6>
                             <?php
+                            
                             $query = "SELECT * FROM `tbl_order_master`";
                             $result = mysqli_query($conn, $query);
-                            while ($row = mysqli_fetch_array($result)) {
+                            ($row = mysqli_fetch_array($result)) 
                                 ?>
                                 <div class="progress-steps">
                                     <div class="progress-bar" style="width: 50%;"></div>
@@ -361,8 +362,7 @@ $order = mysqli_fetch_assoc($order_result);
                                         <div class="step-label">Delivered</div>
                                     </div>
                                 </div>
-                                <?php
-                            } ?>
+                              
                         </div>
 
                     </div>

@@ -281,7 +281,7 @@
         <div class="col-lg-2">
           <div class="mt-3 d-flex justify-content-end">
             <div class="d-flex align-items-center gap-3">
-              <a href="#" class="user-icon position-relative">
+              <a href="view_acount.php" class="user-icon position-relative">
                 <i class="fas fa-user fa-lg"></i>
               </a>
               <a href="wish_list.php" class="wishlist-icon position-relative">
