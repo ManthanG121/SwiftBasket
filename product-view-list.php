@@ -341,7 +341,7 @@ $order = mysqli_fetch_assoc($order_result);
                             
                             $query = "SELECT * FROM `tbl_order_master`";
                             $result = mysqli_query($conn, $query);
-                            while ($row = mysqli_fetch_array($result)) {
+                            ($row = mysqli_fetch_array($result)) 
                                 ?>
                                 <div class="progress-steps">
                                     <?php
@@ -378,8 +378,7 @@ $order = mysqli_fetch_assoc($order_result);
                                         <div class="step-label">Delivered</div>
                                     </div>
                                 </div>
-                                <?php
-                            } ?>
+                              
                         </div>
 
                     </div>
