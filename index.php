@@ -5,24 +5,40 @@ include("./db-connection/db connection.php");
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
 <script>
   new Swiper('.category-carousel', {
-    slidesPerView: 8,
-    spaceBetween: 20,
+    slidesPerView: 5,
+    spaceBetween: 24,
+    loop: true,
     navigation: {
       nextEl: '.category-carousel-next',
       prevEl: '.category-carousel-prev',
     },
     breakpoints: {
-      0: { slidesPerView: 2 },
-      576: { slidesPerView: 4 },
-      768: { slidesPerView: 6 },
-      992: { slidesPerView: 8 }
+      0: {
+        slidesPerView: 2
+      },
+      576: {
+        slidesPerView: 3
+      },
+      768: {
+        slidesPerView: 4
+      },
+      992: {
+        slidesPerView: 5
+      }
     }
   });
 </script>
 
+<style>.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+}
+</style>
 <!-- Hero Section -->
 <section class="hero-section"
     style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/51136425.jpg');">
@@ -111,46 +127,50 @@ include("./db-connection/db connection.php");
 </section>
 
 <!-- Categories Section -->
-<section class="py-5 overflow-hidden">
-    <div class="container-lg">
-        <div class="row">
-            <div class="col-md-12">
-
-                <!-- Section Header -->
-                <div class="section-header d-flex flex-wrap justify-content-between mb-5">
-                    <h2 class="section-title">Category</h2>
-                    <div class="d-flex align-items-center">
-                        <div class="swiper-buttons">
-                            <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
-                            <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Swiper Carousel -->
-                <div class="category-carousel swiper">
-                    <div class="swiper-wrapper">
-                        <?php
-                        $query = "SELECT * FROM `tbl_category`";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <div class="swiper-slide text-center">
-                                <a href="product.php?category_id=<?= $row['category_id'] ?>" class="nav-link d-block">
-                                    <img src="admin/uplodes/image/<?= $row["category_img"] ?>" alt="Category Thumbnail"
-                                        class="rounded-circle mx-auto mb-2"
-                                        style="width: 100px; height: 100px; object-fit: cover;">
-                                    <h4 class="fs-6 fw-normal"><?= $row["category_name"] ?></h4>
-                                </a>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-
-            </div>
+<!-- Categories Section -->
+<section class="py-5 bg-light overflow-hidden">
+  <div class="container-lg">
+    
+    <!-- Section Header -->
+    <div class="row mb-4">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <h2 class="section-title fw-bold text-dark mb-0">Shop by Category</h2>
+        <div class="swiper-buttons d-flex gap-2">
+          <button class="swiper-prev category-carousel-prev btn btn-dark btn-sm rounded-circle">❮</button>
+          <button class="swiper-next category-carousel-next btn btn-dark btn-sm rounded-circle">❯</button>
         </div>
+      </div>
     </div>
+
+    <!-- Swiper Carousel -->
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper category-carousel">
+          <div class="swiper-wrapper">
+            <?php
+            $query = "SELECT * FROM `tbl_category`";
+            $result = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_array($result)) {
+            ?>
+              <div class="swiper-slide">
+                <a href="product.php?category_id=<?= $row['category_id'] ?>" class="text-decoration-none">
+                  <div class="category-card text-center bg-white p-3 shadow-sm rounded-4 h-100 transition">
+                    <img src="admin/uplodes/image/<?= $row["category_img"] ?>" alt="<?= $row["category_name"] ?>"
+                         class="rounded-circle mb-3 mx-auto d-block"
+                         style="width: 100px; height: 100px; object-fit: cover;">
+                    <h6 class="fw-semibold text-dark"><?= $row["category_name"] ?></h6>
+                  </div>
+                </a>
+              </div>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
+
 
 
 <!-- Best Selling Products -->
