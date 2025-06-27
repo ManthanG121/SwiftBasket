@@ -84,7 +84,7 @@
                     <a href="product-list.php" class="collapsed">
                         <i class="far fa-arrow-alt-circle-right"></i>
                         <p>Product</p>
-                        <span class="badge badge-danger rounded-pill"><?= $product_count["product_count"] ?></span>
+                        <span class="badge badge-secondary rounded-pill"><?= $product_count["product_count"] ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -99,7 +99,7 @@
                         <i class="far fa-thumbs-up"></i>
                         <p>Best Selling Product</p>
                         <span
-                            class="badge badge-danger rounded-pill"><?= $best_selling_count["best_selling_count"] ?></span>
+                            class="badge badge-secondary rounded-pill"><?= $best_selling_count["best_selling_count"] ?></span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -113,7 +113,7 @@
                     <a href="order-list.php" class="collapsed">
                         <i class="fas fa-box-open"></i>
                         <p>Order List</p>
-                        <span class="badge badge-danger rounded-pill"><?= $order_count["order_count"] ?></span>
+                        <span class="badge badge-secondary rounded-pill"><?= $order_count["order_count"] ?></span>
                     </a>
                 </li>
                 <!-- <li class="nav-item">

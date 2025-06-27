@@ -169,60 +169,6 @@
     </div>
 </section>
 
-<!-- FAQ Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center mb-5">
-                <h2 class="fw-bold mb-3">Frequently Asked Questions</h2>
-                <p class="text-muted">Find quick answers to common questions about our services.</p>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden">
-                        <h3 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                How quickly can I expect a response to my inquiry?
-                            </button>
-                        </h3>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call our customer service number.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden">
-                        <h3 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                What are your business hours?
-                            </button>
-                        </h3>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Our customer service team is available Monday through Friday from 9:00 AM to 6:00 PM. We're closed on weekends and public holidays.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item border-0 shadow-sm rounded-3 overflow-hidden">
-                        <h3 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                Can I visit your physical location?
-                            </button>
-                        </h3>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Currently, we operate primarily online, but you're welcome to visit our headquarters by appointment. Please contact us to schedule a visit.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <?php include "footer.php"; ?>
 
 <style>

@@ -69,7 +69,7 @@
         <p class="mb-0 small">© 2025 SwiftBasket. All rights reserved.</p>
       </div>
       <div class="col-md-6 text-start text-md-end">
-        <p class="mb-0 small">Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+        <p class="mb-0 small">Distributed by <a href="#">BCA HUB</a></p>
       </div>
     </div>
   </div>

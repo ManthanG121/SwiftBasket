@@ -7,7 +7,7 @@ include "sidebar.php";
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
-                <h3 class="fw-bold mb-3">Add Category</h3>
+                <h3 class="fw-bold mb-3 pt-4">Add Category</h3>
             </div>
             <div class="ms-md-auto py-2 py-md-0">
                 <a href="category-list.php" class="btn btn btn-outline-primary btn-round">Category List</a>

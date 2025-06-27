@@ -1,7 +1,7 @@
 
 <footer class="footer">
   <div class="container-fluid d-flex justify-content-between">
-    <nav class="pull-left">
+    <!-- <nav class="pull-left">
       <ul class="nav">
         <li class="nav-item">
           <a class="nav-link" href="http://www.themekita.com">
@@ -15,14 +15,13 @@
           <a class="nav-link" href="#"> Licenses </a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
     <div class="copyright">
-      2025, made with <i class="fa fa-heart heart text-danger"></i> by
-      <a href="http://www.themekita.com">BCA HUB</a>
+      © 2025 SwiftBasket. All rights reserved. 
     </div>
     <div>
       Distributed by
-      <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
+      <a target="_blank" href="#">BCA HUB</a>.
     </div>
   </div>
 </footer>
