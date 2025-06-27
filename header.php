@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SwiftBasket</title>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- Bootstrap 5 CSS -->
@@ -166,6 +166,30 @@
       color: var(--primary-color);
       background-color: rgba(40, 167, 69, 0.05);
     }
+
+    .search-bar {
+      background-color: #f1f3f5;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      padding: 5px 15px;
+    }
+
+    .search-bar:focus-within {
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+    }
+
+    .search-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+    }
+
+    .search-btn {
+      background: transparent;
+      border: none;
+      color: var(--primary-color);
+    }
   </style>
 </head>
 
@@ -188,34 +212,26 @@
 
         <!-- Search Bar -->
         <div class="col-12 col-lg-5 my-3 my-lg-0">
-          <div class="search-bar d-flex align-items-center p-2">
-            <form>
-              <input type="text" class="search-input flex-grow-1 border-0 bg-transparent px-3"
-                placeholder="Search for products..."
-                value="<?= isset($_GET["product_name"]) ? $_GET["product_name"] : "" ?>" name="product_name"
-                type="search">
-            </form>
-          </div>
+          <form action="shop.php" method="GET" class="search-bar d-flex align-items-center">
+            <input type="search" name="product_name" class="search-input" placeholder="Search for products..."
+              value="<?= isset($_GET['product_name']) ? $_GET['product_name'] : '' ?>">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </form>
         </div>
 
         <!-- Navigation Links -->
         <div class="col-lg-5 d-none d-lg-block">
-          <nav class="navbar navbar-expand-lg justify-content-end">
-            <div class="d-flex justify-content-center w-80">
-              <span class="navbar-text me-3 text-center">
-                <i class="fas fa-phone-alt me-1"></i> +1 234 567 890
-              </span>
-              <a href="track-order.php">
-                <span class="navbar-text text-center">
-                  <i class="fas fa-map-marker-alt me-1"></i> Track Order
-                </span>
-              </a>
-            </div>
-          </nav>
+          <div class="d-flex justify-content-end gap-4">
+            <span class="navbar-text"><i class="fas fa-phone-alt me-1"></i> +91 98765 43210</span>
+            <a href="track-order.php" class="navbar-text text-decoration-none"><i
+                class="fas fa-map-marker-alt me-1"></i> Track Order</a>
+          </div>
         </div>
-
-
       </div>
+    </div>
+
+
+    </div>
     </div>
 
     <!-- Secondary Navigation -->
@@ -300,95 +316,7 @@
     </div>
   </header>
 
-  <!-- Mobile Menu Offcanvas
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
-    <div class="offcanvas-header border-bottom">
-      <h5 class="offcanvas-title">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.php">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="shop.php">Shop</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.php">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-            Categories
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Fruits & Vegetables</a></li>
-            <li><a class="dropdown-item" href="#">Dairy & Eggs</a></li>
-            <li><a class="dropdown-item" href="#">Meat & Poultry</a></li>
-            <li><a class="dropdown-item" href="#">Seafood</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">View All</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div> -->
 
-  <!-- Shopping Cart Offcanvas -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart">
-    <div class="offcanvas-header border-bottom">
-      <h5 class="offcanvas-title">Your Cart (5)</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="cart-items">
-        <div class="d-flex mb-3 border-bottom pb-3">
-          <img src="https://via.placeholder.com/80" alt="Product" class="rounded me-3" width="80">
-          <div class="flex-grow-1">
-            <h6 class="mb-1">Organic Apples</h6>
-            <small class="text-muted">1kg</small>
-            <div class="d-flex align-items-center justify-content-between mt-2">
-              <div class="input-group input-group-sm" style="width: 120px;">
-                <button class="btn btn-outline-secondary" type="button">-</button>
-                <input type="text" class="form-control text-center" value="2">
-                <button class="btn btn-outline-secondary" type="button">+</button>
-              </div>
-              <span class="fw-bold">$4.98</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="d-flex mb-3 border-bottom pb-3">
-          <img src="https://via.placeholder.com/80" alt="Product" class="rounded me-3" width="80">
-          <div class="flex-grow-1">
-            <h6 class="mb-1">Fresh Milk</h6>
-            <small class="text-muted">1 Liter</small>
-            <div class="d-flex align-items-center justify-content-between mt-2">
-              <div class="input-group input-group-sm" style="width: 120px;">
-                <button class="btn btn-outline-secondary" type="button">-</button>
-                <input type="text" class="form-control text-center" value="1">
-                <button class="btn btn-outline-secondary" type="button">+</button>
-              </div>
-              <span class="fw-bold">$2.49</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="offcanvas-footer border-top p-3">
-      <div class="d-flex justify-content-between mb-3">
-        <span>Subtotal:</span>
-        <span class="fw-bold">$7.47</span>
-      </div>
-      <a href="checkout.html" class="btn btn-primary w-100 mb-2">Proceed to Checkout</a>
-      <a href="cart.html" class="btn btn-outline-secondary w-100">View Cart</a>
-    </div>
-  </div>
 
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -3,41 +3,42 @@ include "header.php";
 include("./db-connection/db connection.php");
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-  new Swiper('.category-carousel', {
-    slidesPerView: 5,
-    spaceBetween: 24,
-    loop: true,
-    navigation: {
-      nextEl: '.category-carousel-next',
-      prevEl: '.category-carousel-prev',
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 2
-      },
-      576: {
-        slidesPerView: 3
-      },
-      768: {
-        slidesPerView: 4
-      },
-      992: {
-        slidesPerView: 5
-      }
-    }
-  });
+    new Swiper('.category-carousel', {
+        slidesPerView: 5,
+        spaceBetween: 24,
+        loop: true,
+        navigation: {
+            nextEl: '.category-carousel-next',
+            prevEl: '.category-carousel-prev',
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 2
+            },
+            576: {
+                slidesPerView: 3
+            },
+            768: {
+                slidesPerView: 4
+            },
+            992: {
+                slidesPerView: 5
+            }
+        }
+    });
 </script>
 
-<style>.category-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
-}
+<style>
+    .category-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
 </style>
 <!-- Hero Section -->
 <section class="hero-section"
@@ -68,7 +69,7 @@ include("./db-connection/db connection.php");
                             <span class="text-light">Customers</span>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -120,67 +121,53 @@ include("./db-connection/db connection.php");
         </div>
     </div>
 </section>
-
-<!-- Categories Section -->
-<!-- Categories Section -->
 <section class="py-5 bg-light overflow-hidden">
-  <div class="container-lg">
-    
-    <!-- Section Header -->
-    <div class="row mb-4">
-      <div class="col-12 d-flex justify-content-between align-items-center">
-        <h2 class="section-title fw-bold text-dark mb-0">Shop by Category</h2>
-        <div class="swiper-buttons d-flex gap-2">
-          <button class="swiper-prev category-carousel-prev btn btn-dark btn-sm rounded-circle">❮</button>
-          <button class="swiper-next category-carousel-next btn btn-dark btn-sm rounded-circle">❯</button>
+    <div class="container-lg">
+        <div class="row mb-4">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <h2 class="section-title fw-bold text-dark mb-0">Shop by Category</h2>
+                <div class="swiper-buttons d-flex gap-2">
+                    <button class="swiper-prev category-carousel-prev btn btn-dark btn-sm rounded-circle">❮</button>
+                    <button class="swiper-next category-carousel-next btn btn-dark btn-sm rounded-circle">❯</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Swiper Carousel -->
-    <div class="row">
-      <div class="col-12">
-        <div class="swiper category-carousel">
-          <div class="swiper-wrapper">
-            <?php
-            $query = "SELECT * FROM `tbl_category`";
-            $result = mysqli_query($conn, $query);
-            while ($row = mysqli_fetch_array($result)) {
-            ?>
-              <div class="swiper-slide">
-                <a href="product.php?category_id=<?= $row['category_id'] ?>" class="text-decoration-none">
-                  <div class="category-card text-center bg-white p-3 shadow-sm rounded-4 h-100 transition">
-                    <img src="admin/uplodes/image/<?= $row["category_img"] ?>" alt="<?= $row["category_name"] ?>"
-                         class="rounded-circle mb-3 mx-auto d-block"
-                         style="width: 100px; height: 100px; object-fit: cover;">
-                    <h6 class="fw-semibold text-dark"><?= $row["category_name"] ?></h6>
-                  </div>
-                </a>
-              </div>
-            <?php } ?>
-          </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="swiper category-carousel">
+                    <div class="swiper-wrapper">
+                        <?php
+                        $query = "SELECT * FROM `tbl_category`";
+                        $result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <div class="swiper-slide">
+                                <a href="product.php?category_id=<?= $row['category_id'] ?>" class="text-decoration-none">
+                                    <div
+                                        class="category-card text-center bg-white p-3 shadow-sm rounded-4 h-100 transition">
+                                        <img src="admin/uplodes/image/<?= $row["category_img"] ?>"
+                                            alt="<?= $row["category_name"] ?>" class="rounded-circle mb-3 mx-auto d-block"
+                                            style="width: 100px; height: 100px; object-fit: cover;">
+                                        <h6 class="fw-semibold text-dark"><?= $row["category_name"] ?></h6>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
+    </div>
 </section>
-
-
-
-<!-- Best Selling Products -->
 <section class="py-5 bg-light">
     <div class="container">
-        <!-- Section Header -->
         <div class="row mb-4">
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <h2 class="section-title mb-0">Best Selling Products</h2>
             </div>
         </div>
-
-        <!-- Product Grid -->
         <div class="row g-4">
-
             <?php
             $query = "SELECT * FROM tbl_product 
                       INNER JOIN tbl_best_selling_product 
@@ -192,42 +179,30 @@ include("./db-connection/db connection.php");
                     ?>
                     <div class="col-sm-6 col-lg-3">
                         <div class="card h-100 shadow-sm border-0 position-relative">
-                            <!-- Discount Badge -->
                             <span class="badge bg-danger position-absolute top-0 end-0 m-2 z-1">
                                 <?= $row['product_discount_percentage'] ?>% OFF
                             </span>
-
-                            <!-- Product Image -->
                             <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
                                 <div class="ratio ratio-4x3">
                                     <img src="admin/uplodes/image/<?= $row['product_img'] ?>" alt="<?= $row['product_name'] ?>"
                                         class="img-fluid object-fit-cover rounded-top">
                                 </div>
                             </a>
-
-                            <!-- Card Body -->
                             <div class="card-body d-flex flex-column">
                                 <a href="singleproduct.php?product_id=<?= $row['product_id'] ?>" class="text-decoration-none">
                                     <h6 class="card-title text-center text-dark mb-2"><?= $row['product_name'] ?></h6>
                                 </a>
-
-                                <!-- Ratings -->
                                 <div class="d-flex justify-content-center align-items-center mb-2 text-warning small">
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
                                     <span class="text-muted small ms-2">(400 reviews)</span>
                                 </div>
-
-                                <!-- Price -->
                                 <div class="d-flex justify-content-center align-items-center mb-3">
                                     <span class="fw-bold text-dark fs-6 me-2"><?= $row['product_sell_price'] ?> Rs</span>
                                     <span class="text-muted text-decoration-line-through"><?= $row['product_mrp'] ?> Rs</span>
                                 </div>
-
-                                <!-- Buttons -->
                                 <div class="mt-auto d-flex gap-2">
-                                    <!-- Add to Cart -->
                                     <form action="cart_insert.php" method="post" class="w-100">
                                         <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
                                         <input type="hidden" name="cart_qty" value="1">
@@ -235,11 +210,9 @@ include("./db-connection/db connection.php");
                                             <i class="fas fa-shopping-cart me-1"></i>Cart
                                         </button>
                                     </form>
-
-                                    <!-- Wishlist -->
                                     <form action="wish_list_insert.php" method="post">
                                         <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
-                                        <button type="submit" class="btn btn-outline-secondary">
+                                        <button type="submit" class="btn btn-outline-danger">
                                             <i class="far fa-heart"></i>
                                         </button>
                                     </form>
@@ -256,9 +229,6 @@ include("./db-connection/db connection.php");
         </div>
     </div>
 </section>
-
-
-
 <!-- Promo Banners -->
 <section class="py-5 bg-light">
     <div class="container">
@@ -291,14 +261,8 @@ include("./db-connection/db connection.php");
         </div>
     </div>
 </section>
-
-
-
-
-<!-- Featured Products Section -->
 <section class="py-5 bg-light">
     <div class="container">
-        <!-- Header with navigation arrows -->
         <div class="row mb-4">
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <h2 class="section-title mb-0">Featured Products</h2>
@@ -312,11 +276,8 @@ include("./db-connection/db connection.php");
                 </div>
             </div>
         </div>
-
-        <!-- Swiper Slider -->
         <div class="swiper featured-slider overflow-hidden">
             <div class="swiper-wrapper">
-
                 <?php
                 $query = "SELECT * FROM tbl_product 
                           INNER JOIN tbl_feature ON tbl_product.product_id = tbl_feature.product_id";
@@ -362,7 +323,7 @@ include("./db-connection/db connection.php");
                                         </form>
                                         <form action="wish_list_insert.php" method="post">
                                             <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
-                                            <button type="submit" class="btn btn-outline-secondary">
+                                            <button type="submit" class="btn btn-outline-danger">
                                                 <i class="far fa-heart"></i>
                                             </button>
                                         </form>
