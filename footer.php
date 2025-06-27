@@ -8,11 +8,9 @@
         <div class="footer-menu">
           <h5 class="widget-title">SwiftBasket</h5>
           <ul class="menu-list list-unstyled">
-            <li class="menu-item"><a href="#" class="nav-link">About Us</a></li>
-            <li class="menu-item"><a href="#" class="nav-link">Careers</a></li>
-            <li class="menu-item"><a href="#" class="nav-link">Affiliate Program</a></li>
-            <li class="menu-item"><a href="#" class="nav-link">Press & Media</a></li>
-            <li class="menu-item"><a href="#" class="nav-link">Terms & Conditions</a></li>
+            <li class="menu-item"><a href="about.php" class="nav-link">About Us</a></li>
+            <li class="menu-item"><a href="FAQ.php" class="nav-link">FAQ</a></li>
+            <li class="menu-item"><a href="Terms_&_Conditions.php" class="nav-link">Terms & Conditions</a></li>
           </ul>
         </div>
       </div>
@@ -22,7 +20,7 @@
         <div class="footer-menu">
           <h5 class="widget-title">Customer Service</h5>
           <ul class="menu-list list-unstyled">
-            <li class="menu-item"><a href="#" class="nav-link">Help Center</a></li>
+            <li class="menu-item"><a href="Help_Center.php" class="nav-link">Help Center</a></li>
             <li class="menu-item"><a href="#" class="nav-link">Order Tracking</a></li>
             <li class="menu-item"><a href="#" class="nav-link">Return & Refund Policy</a></li>
             <li class="menu-item"><a href="#" class="nav-link">Shipping & Delivery</a></li>
@@ -68,7 +66,7 @@
   <div class="container-lg">
     <div class="row">
       <div class="col-md-6">
-        <p class="mb-0 small">© 2024 SwiftBasket. All rights reserved.</p>
+        <p class="mb-0 small">© 2025 SwiftBasket. All rights reserved.</p>
       </div>
       <div class="col-md-6 text-start text-md-end">
         <p class="mb-0 small">Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>

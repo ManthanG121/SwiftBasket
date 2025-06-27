@@ -56,24 +56,19 @@ include("./db-connection/db connection.php");
                 </div>
 
                 <div class="row mt-5 g-4 pt-4 border-top border-light border-opacity-25">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="d-flex flex-column align-items-center">
                             <span class="display-5 fw-bold text-danger">14k+</span>
                             <span class="text-light">Products</span>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="d-flex flex-column align-items-center">
                             <span class="display-5 fw-bold text-danger">50k+</span>
                             <span class="text-light">Customers</span>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="d-flex flex-column align-items-center">
-                            <span class="display-5 fw-bold text-danger">10+</span>
-                            <span class="text-light">Stores</span>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
