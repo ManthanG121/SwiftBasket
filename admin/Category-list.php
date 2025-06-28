@@ -15,7 +15,7 @@ include "sidebar.php";
             </div>
         </div>
         <hr>
-        <div class="card shadow-sm border-0 rounded-4">
+        <div class="card shadow-lg border-0 rounded-4">
             <div class="card-header bg-info text-white rounded-top-4">
                 <h5 class="mb-0">Category List</h5>
             </div>
