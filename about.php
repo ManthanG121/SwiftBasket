@@ -12,7 +12,6 @@ include "header.php";
     </div>
   </div>
 </div>
-
 <!-- Main Content -->
 <div class="container py-5">
   <!-- Who We Are -->

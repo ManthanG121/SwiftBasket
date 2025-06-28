@@ -26,9 +26,33 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>
-
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    .compact-modal .modal-dialog {
+      max-width: 400px;
+    }
+
+    .compact-modal .profile-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    .compact-modal .info-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .compact-modal .info-label {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+
+    .compact-modal .info-value {
+      font-size: 0.9rem;
+    }
+
     :root {
       --primary-color: #28a745;
       --secondary-color: #ffc107;
@@ -297,7 +321,7 @@
         <div class="col-lg-2">
           <div class="mt-3 d-flex justify-content-end">
             <div class="d-flex align-items-center gap-3">
-              <a href="view_acount.php" class="user-icon position-relative">
+              <a data-bs-toggle="modal" data-bs-target="#compactAccountModal" class="user-icon position-relative">
                 <i class="fas fa-user fa-lg"></i>
               </a>
               <a href="wish_list.php" class="wishlist-icon position-relative">
@@ -311,6 +335,56 @@
             </div>
           </div>
         </div>
+        <?php
+        $customer_id = $_SESSION['customer_id'];
+        $query = "SELECT * FROM tbl_customer where customer_id = $customer_id";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+        ?>
+        <div class="modal fade" id="compactAccountModal" tabindex="-1" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog" style="position: absolute; top: 0%; right: 10px; margin-top: 10px; width: 400px;">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 10px; overflow: hidden;">
+              <!-- Modal Header with gradient background -->
+              <div class="modal-header py-3 bg-warning">
+                <h6 class="modal-title text-white"><i class="fas fa-user-circle me-2"></i>My Account</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+
+              <!-- Modal Body with improved spacing and styling -->
+              <div class="modal-body py-4">
+                <div class="info-item row mb-3">
+                  <div class="col-4">
+                    <div class="info-label text-muted"><b>Customer Name:</b></div>
+                  </div>
+                  <div class="col-8">
+                    <div class="info-value text-dark"><?= $row["customer_name"] ?></div>
+                  </div>
+                </div>
+                <div class="info-item row mb-3">
+                  <div class="col-4">
+                    <div class="info-label text-muted"><b>Email:</b></div>
+                  </div>
+                  <div class="col-8">
+                    <div class="info-value text-dark"><?= $row["customer_email"] ?></div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="modal-footer py-3 d-flex justify-content-between border-top-0"
+                style="background-color: #f8f9fa;">
+                <button class="btn btn-sm btn-outline-secondary px-3" data-bs-dismiss="modal"
+                  style="border-radius: 20px;">
+                  <i class="fas fa-times me-1"></i> Close
+                </button>
+                <a href="logout.php" class="btn btn-sm btn-danger px-3" style="border-radius: 20px;">
+                  <i class="fas fa-sign-out-alt me-1"></i> LogOut
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     </div>
@@ -321,6 +395,7 @@
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+
     // Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
