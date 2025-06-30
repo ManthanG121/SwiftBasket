@@ -148,10 +148,10 @@ include("./db-connection/db connection.php");
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentMethod" value="PayPal"
+                                        <input class="form-check-input" type="radio" name="paymentMethod" value="QR Payment"
                                             id="paypal">
                                         <label class="form-check-label fw-bold" for="paypal">
-                                            PayPal
+                                           QR Payment
                                         </label>
                                     </div>
                                     <div class="form-check">
@@ -189,10 +189,8 @@ include("./db-connection/db connection.php");
                                 <input type="hidden" name="date" id="datevisiable">
                                 <!-- PayPal Form (hidden by default) -->
                                 <div id="paypalForm" class="d-none text-center py-4">
-                                    <p>You will be redirected to PayPal to complete your payment</p>
-                                    <button type="button" class="btn btn-outline-primary">
-                                        <i class="fab fa-paypal me-2"></i>Pay with PayPal
-                                    </button>
+                                    <p>You will be redirected to Qr code to complete your payment</p>
+                                    <img src="IMG_20250630_101723.jpg" alt="" class="img-fluid"> 
                                 </div>
 
                                 <!-- COD Form (hidden by default) -->
