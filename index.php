@@ -234,11 +234,11 @@ include("./db-connection/db connection.php");
     <div class="container">
         <div class="row g-4">
             <!-- Left Banner: Exclusive Offers Promotion -->
-            <div class="col-md-12">
+            <a href="shop.php"><div class="col-md-12">
                 <div class="position-relative rounded-4 overflow-hidden h-100 shadow"
      style="background-image: url('images/PC-HEADER2_1.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 340px;">
                 </div>
-            </div>
+            </div></a>
         </div>
     </div>
 </section>
