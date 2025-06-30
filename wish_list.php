@@ -103,7 +103,7 @@ if (!isset($_SESSION["login"])) {
                             <button class="btn btn-sm position-absolute top-0 end-0 m-2 p-2 bg-white rounded-circle shadow-sm"
                                 onclick="window.location.href='wish_list_delete.php?product_id=<?= $row['product_id'] ?>'"
                                 data-bs-toggle="tooltip" data-bs-placement="left" title="Remove from wishlist">
-                                <i class="fas fa-heart text-danger"></i>
+                                <i class="fas fa-trash text-danger"></i>
                             </button>
                         </div>
 
