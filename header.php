@@ -324,11 +324,11 @@
               </a>
               <a href="wish_list.php" class="wishlist-icon position-relative">
                 <i class="fas fa-heart fa-lg"></i>
-                <span class="cart-count"><?= $testw["total_countw"] ?></span>
+                <span class="cart-count bg-warning"><?= $testw["total_countw"] ?></span>
               </a>
               <a href="cart.php" class="cart-icon position-relative" data-bs-target="#offcanvasCart">
                 <i class="fas fa-shopping-bag fa-lg"></i>
-                <span class="cart-count"> <?= $test["total_count"] ?></span>
+                <span class="cart-count bg-warning"> <?= $test["total_count"] ?></span>
               </a>
             </div>
           </div>
