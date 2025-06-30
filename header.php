@@ -1,10 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <?php
-  session_start();
-  ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SwiftBasket</title>
@@ -336,54 +334,82 @@
           </div>
         </div>
         <?php
-        $customer_id = $_SESSION['customer_id'];
-        $query = "SELECT * FROM tbl_customer where customer_id = $customer_id";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_array($result);
-        ?>
-        <div class="modal fade" id="compactAccountModal" tabindex="-1" aria-hidden="true" style="display: none;">
-          <div class="modal-dialog" style="position: absolute; top: 0%; right: 10px; margin-top: 10px; width: 400px;">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 10px; overflow: hidden;">
-              <!-- Modal Header with gradient background -->
-              <div class="modal-header py-3 bg-warning">
-                <h6 class="modal-title text-white"><i class="fas fa-user-circle me-2"></i>My Account</h6>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-              </div>
+        $row = null;
+        if (isset($_SESSION['customer_id'])) {
+          $customer_id = intval($_SESSION['customer_id']);
+          $query = "SELECT * FROM tbl_customer WHERE customer_id = $customer_id";
+          $result = mysqli_query($conn, $query);
 
-              <!-- Modal Body with improved spacing and styling -->
-              <div class="modal-body py-4">
-                <div class="info-item row mb-3">
-                  <div class="col-4">
-                    <div class="info-label text-muted"><b>Customer Name:</b></div>
+          if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_array($result);
+          }
+        }
+        ?>
+
+        <?php if ($row): ?>
+         
+          <div class="modal fade" id="compactAccountModal" tabindex="-1" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog" style="position: absolute; top: 0%; right: 10px; margin-top: 10px; width: 400px;">
+              <div class="modal-content border-0 shadow-lg" style="border-radius: 10px; overflow: hidden;">
+                <div class="modal-header py-3 bg-warning">
+                  <h6 class="modal-title text-white"><i class="fas fa-user-circle me-2"></i>My Account</h6>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4">
+                  <div class="info-item row mb-3">
+                    <div class="col-4">
+                      <div class="info-label text-muted"><b>Customer Name:</b></div>
+                    </div>
+                    <div class="col-8">
+                      <div class="info-value text-dark"><?= htmlspecialchars($row["customer_name"]) ?></div>
+                    </div>
                   </div>
-                  <div class="col-8">
-                    <div class="info-value text-dark"><?= $row["customer_name"] ?></div>
+                  <div class="info-item row mb-3">
+                    <div class="col-4">
+                      <div class="info-label text-muted"><b>Email:</b></div>
+                    </div>
+                    <div class="col-8">
+                      <div class="info-value text-dark"><?= htmlspecialchars($row["customer_email"]) ?></div>
+                    </div>
                   </div>
                 </div>
-                <div class="info-item row mb-3">
-                  <div class="col-4">
-                    <div class="info-label text-muted"><b>Email:</b></div>
-                  </div>
-                  <div class="col-8">
-                    <div class="info-value text-dark"><?= $row["customer_email"] ?></div>
-                  </div>
+                <hr>
+                <div class="modal-footer py-3 d-flex justify-content-between border-top-0"
+                  style="background-color: #f8f9fa;">
+                  <button class="btn btn-sm btn-outline-secondary px-3" data-bs-dismiss="modal"
+                    style="border-radius: 20px;">
+                    <i class="fas fa-times me-1"></i> Close
+                  </button>
+                  <a href="logout.php" class="btn btn-sm btn-danger px-3" style="border-radius: 20px;">
+                    <i class="fas fa-sign-out-alt me-1"></i> LogOut
+                  </a>
                 </div>
-              </div>
-              <hr>
-              <div class="modal-footer py-3 d-flex justify-content-between border-top-0"
-                style="background-color: #f8f9fa;">
-                <button class="btn btn-sm btn-outline-secondary px-3" data-bs-dismiss="modal"
-                  style="border-radius: 20px;">
-                  <i class="fas fa-times me-1"></i> Close
-                </button>
-                <a href="logout.php" class="btn btn-sm btn-danger px-3" style="border-radius: 20px;">
-                  <i class="fas fa-sign-out-alt me-1"></i> LogOut
-                </a>
               </div>
             </div>
           </div>
-        </div>
+        <?php else: ?>
+          <div class="modal fade" id="compactAccountModal" tabindex="-1" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog" style="position: absolute; top: 0%; right: 10px; margin-top: 10px; width: 400px;">
+              <div class="modal-content border-0 shadow-lg" style="border-radius: 10px; overflow: hidden;">
+                <div class="modal-header py-3 bg-warning">
+                  <h6 class="modal-title text-white"><i class="fas fa-sign-in-alt me-2"></i>Login Required</h6>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4 text-center">
+                  <p class="text-muted">Please log in to view your account details.</p>
+                  <hr>
+                  <a href="SignUp_LogIn_Form.php" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt me-1"></i> Login
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php endif; ?>
+
+        <!--  -->
 
       </div>
     </div>
