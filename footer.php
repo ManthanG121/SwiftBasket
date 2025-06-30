@@ -21,10 +21,10 @@
           <h5 class="widget-title">Customer Service</h5>
           <ul class="menu-list list-unstyled">
             <li class="menu-item"><a href="Help_Center.php" class="nav-link">Help Center</a></li>
-            <li class="menu-item"><a href="#" class="nav-link">Order Tracking</a></li>
+            <li class="menu-item"><a href="track-order.php" class="nav-link">Order Tracking</a></li>
             <li class="menu-item"><a href="#" class="nav-link">Return & Refund Policy</a></li>
-            <li class="menu-item"><a href="#" class="nav-link">Shipping & Delivery</a></li>
-            <li class="menu-item"><a href="#" class="nav-link">Report an Issue</a></li>
+            <li class="menu-item"><a href="track-order.php" class="nav-link">Shipping & Delivery</a></li>
+            <li class="menu-item"><a href="contact.php" class="nav-link">Report an Issue</a></li>
           </ul>
         </div>
       </div>

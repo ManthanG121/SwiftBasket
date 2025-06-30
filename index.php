@@ -234,30 +234,11 @@ include("./db-connection/db connection.php");
     <div class="container">
         <div class="row g-4">
             <!-- Left Banner: Exclusive Offers Promotion -->
-            <div class="col-md-8">
-                <div class="position-relative rounded-4 overflow-hidden h-100"
-                    style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('image-7.png'); background-size: cover; background-position: center; min-height: 300px;">
-                    <div class="position-absolute bottom-0 start-0 p-4 p-lg-5 text-white w-100">
-                        <span class="badge bg-danger mb-2">Exclusive Offer</span>
-                        <h2 class="fw-bold display-6">Big Deals, Small Prices</h2>
-                        <p class="mb-3 fs-5">Up to 50% off on your favorite categories — limited time only!</p>
-                        <a href="shop.php" class="btn btn-success rounded-pill px-4 fw-semibold">View All Offers</a>
-                    </div>
+            <div class="col-md-12">
+                <div class="position-relative rounded-4 overflow-hidden h-100 shadow"
+     style="background-image: url('images/PC-HEADER2_1.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 340px;">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="position-relative rounded-4 overflow-hidden h-100"
-                    style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('image-8.png'); background-size: cover; background-position: center; min-height: 300px;">
-                    <div class="position-absolute bottom-0 start-0 p-4 text-white w-100">
-                        <span class="badge bg-pink mb-2">New Arrivals</span>
-                        <h4 class="fw-bold">Trending Styles</h4>
-                        <p class="small">Shop fashion for men, women & kids</p>
-                        <a href="category.php?cat=fashion"
-                            class="btn btn-sm btn-light rounded-pill px-3 fw-semibold">Explore Fashion</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
