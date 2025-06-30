@@ -39,8 +39,7 @@ include("./db-connection/db connection.php");
         transform: translateY(-5px);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     }
-</style>
-<!-- Hero Section -->
+</style> 
 <section class="hero-section"
     style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/51136425.jpg');">
     <div class="container">
@@ -75,8 +74,6 @@ include("./db-connection/db connection.php");
         </div>
     </div>
 </section>
-
-<!-- Features Section -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="row g-4">
@@ -229,11 +226,9 @@ include("./db-connection/db connection.php");
         </div>
     </div>
 </section>
-<!-- Promo Banners -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="row g-4">
-            <!-- Left Banner: Exclusive Offers Promotion -->
             <a href="shop.php"><div class="col-md-12">
                 <div class="position-relative rounded-4 overflow-hidden h-100 shadow"
      style="background-image: url('images/PC-HEADER2_1.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 340px;">
@@ -481,10 +476,8 @@ include("./db-connection/db connection.php");
     }
 </style>
 
-<!-- Initialize Swiper -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Featured Products Slider
         var featuredSlider = new Swiper('.featured-slider', {
             slidesPerView: 1,
             spaceBetween: 20,
