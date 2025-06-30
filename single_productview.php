@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 include("./db-connection/db connection.php");
-$product_id = isset($_GET["product_id"]) ? (int)$_GET["product_id"] : 0;
+$product_id = isset($_GET["product_id"]) ? (int) $_GET["product_id"] : 0;
 
 mysqli_query($conn, "UPDATE tbl_product SET view_count = view_count + 1 WHERE product_id = $product_id");
 $query = "SELECT * FROM tbl_product WHERE product_id = $product_id";
@@ -15,7 +15,6 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 ?>
 
-
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 <section class="py-5 bg-light">
@@ -23,14 +22,17 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="card border-0 shadow-lg">
             <div class="row g-0">
                 <div class="col-lg-6 d-flex align-items-center bg-white p-4">
-                    <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="img-fluid rounded w-100" style="max-height: 500px; object-fit: contain;" alt="Product Image">
+                    <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="img-fluid rounded w-100"
+                        style="max-height: 500px; object-fit: contain;" alt="Product Image">
                 </div>
                 <div class="col-lg-6 p-5 bg-white">
                     <h1 class="fw-bold mb-3"><?= $row['product_name'] ?></h1>
                     <div class="d-flex align-items-center mb-3">
                         <h3 class="text-success fw-semibold mb-0"><?= $row['product_sell_price'] ?> Rs</h3>
-                        <span class="text-muted text-decoration-line-through ms-3 fs-5"><?= $row['product_mrp'] ?> Rs</span>
-                        <span class="badge bg-danger ms-3 px-3 py-2 fs-6"><?= $row['product_discount_percentage'] ?>% OFF</span>
+                        <span class="text-muted text-decoration-line-through ms-3 fs-5"><?= $row['product_mrp'] ?>
+                            Rs</span>
+                        <span class="badge bg-danger ms-3 px-3 py-2 fs-6"><?= $row['product_discount_percentage'] ?>%
+                            OFF</span>
                     </div>
                     <div class="mb-3 text-warning fs-5">
                         <i class="bi bi-star-fill"></i>
@@ -70,7 +72,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         if (isset($_SESSION["customer_id"])) {
             $customer = $_SESSION["customer_id"];
         } else {
-            $customer = null; 
+            $customer = null;
         }
         $recommend_query = "SELECT * FROM tbl_product ORDER BY view_count DESC LIMIT 4";
         $recommend_result = mysqli_query($conn, $recommend_query);
@@ -120,5 +122,4 @@ if ($result && mysqli_num_rows($result) > 0) {
             </div>
         <?php } ?>
     </div>
-</div
-<?php include "footer.php"; ?>
+</div <?php include "footer.php"; ?>
