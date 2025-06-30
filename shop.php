@@ -247,7 +247,11 @@ include("./db-connection/db connection.php");
     <h3 class="fw-bold mb-4">Recommended For You</h3>
     <div class="row g-4">
         <?php
-        $customer = $_SESSION["customer_id"];
+        if (isset($_SESSION["customer_id"])) {
+            $customer = $_SESSION["customer_id"];
+        } else {
+            $customer = null; 
+        }
         $recommend_query = "SELECT * FROM tbl_product ORDER BY view_count DESC LIMIT 4";
         $recommend_result = mysqli_query($conn, $recommend_query);
         while ($row = mysqli_fetch_array($recommend_result)) {

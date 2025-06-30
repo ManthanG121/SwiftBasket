@@ -63,4 +63,62 @@ if ($result && mysqli_num_rows($result) > 0) {
         </div>
     </div>
 </section>
+<div class="container py-5">
+    <h3 class="fw-bold mb-4">Recommended For You</h3>
+    <div class="row g-4">
+        <?php
+        if (isset($_SESSION["customer_id"])) {
+            $customer = $_SESSION["customer_id"];
+        } else {
+            $customer = null; 
+        }
+        $recommend_query = "SELECT * FROM tbl_product ORDER BY view_count DESC LIMIT 4";
+        $recommend_result = mysqli_query($conn, $recommend_query);
+        while ($row = mysqli_fetch_array($recommend_result)) {
+            $discount = $row['product_mrp'] - $row['product_sell_price'];
+            ?>
+            <div class="col-md-6 col-lg-3">
+                <div class="card product-card h-100 border-0 shadow-sm overflow-hidden">
+                    <div class="position-relative">
+                        <?php if ($row['product_discount_percentage'] > 0): ?>
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+                                <?= $row['product_discount_percentage'] ?>% OFF
+                            </span>
+                        <?php endif; ?>
+
+                        <a href="single_productview.php?product_id=<?= $row['product_id'] ?>">
+                            <img src="admin/uplodes/image/<?= $row['product_img'] ?>" class="card-img-top p-3"
+                                style="height: 200px; object-fit: contain; background-color: #f8f9fa;"
+                                alt="<?= $row['product_name'] ?>">
+                        </a>
+                    </div>
+
+                    <div class="card-body text-center">
+                        <h6 class="card-title mb-1">
+                            <a href="single_productview.php?product_id=<?= $row['product_id'] ?>"
+                                class="text-decoration-none text-dark">
+                                <?= $row['product_name'] ?>
+                            </a>
+                        </h6>
+
+                        <div class="mb-2">
+                            <span class="text-success fw-bold">₹<?= $row['product_sell_price'] ?></span>
+                            <?php if ($row['product_mrp'] > $row['product_sell_price']): ?>
+                                <span class="text-muted text-decoration-line-through ms-2">₹<?= $row['product_mrp'] ?></span>
+                            <?php endif; ?>
+                        </div>
+
+                        <form action="cart_insert.php" method="post">
+                            <input type="hidden" name="id" value="<?= $row['product_id'] ?>">
+                            <input type="hidden" name="cart_qty" value="1">
+                            <button type="submit" class="btn btn-sm btn-outline-primary rounded-pill">
+                                <i class="fas fa-cart-plus me-1"></i> Add to Cart
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div
 <?php include "footer.php"; ?>
