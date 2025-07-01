@@ -27,4 +27,25 @@ Contact page img
 Featured Products img 
 ![alt text](image-8.png)
 
+Admin Panel
 
+Dashboard
+![alt text](image-9.png)
+
+Category List
+![alt text](image-10.png)
+
+Product List
+![alt text](image-11.png)
+
+Featured List
+![alt text](image-12.png)
+
+Best Selling Product
+![alt text](image-13.png)
+
+Contact List
+![alt text](image-14.png)
+
+Order List
+![alt text](image-15.png)
