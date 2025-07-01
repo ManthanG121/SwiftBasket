@@ -222,7 +222,7 @@
         <!-- Logo and Mobile Menu Button -->
         <div class="col-6 col-lg-2">
           <div class="d-flex align-items-center">
-            <a class="navbar-brand me-3" href="index.html">
+            <a class="navbar-brand me-3" href="#">
               <img src="images/ChatGPT Image Jun 13, 2025, 12_31_35 PM.png" alt="SwiftBasket" class="img-fluid">
             </a>
             <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="offcanvas"
