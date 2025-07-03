@@ -11,7 +11,6 @@ $order = mysqli_fetch_assoc($order_result);
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
 <style>
     :root {
         --primary: #28a745;
@@ -310,7 +309,6 @@ $order = mysqli_fetch_assoc($order_result);
                                               AND tbl_order_master_child.order_child_order_master_id = $order_master_id";
                                     $result = mysqli_query($conn, $query2);
                                     $subtotal = 0;
-
                                     while ($row = mysqli_fetch_array($result)) {
                                         $lineTotal = $row['order_child_qty'] * $row['product_sell_price'];
                                         $subtotal += $lineTotal;
