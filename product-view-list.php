@@ -384,7 +384,6 @@ $order = mysqli_fetch_assoc($order_result);
             </div>
 
 
-
             <div class="col-lg-4">
                 <div class="summary-card mb-4">
                     <h5 class="fw-bold mb-3">Order Summary</h5>
